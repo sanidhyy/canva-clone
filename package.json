@@ -125,7 +125,7 @@
     "replicate": "^1.0.0",
     "sonner": "^1.5.0",
     "stripe": "^17.2.1",
-    "tailwind-merge": "^2.5.3",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "unsplash-js": "^7.0.19",
     "uploadthing": "^7.1.0",
