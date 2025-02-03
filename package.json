@@ -119,7 +119,7 @@
     "next-themes": "^0.4.2",
     "react": "^18",
     "react-color": "^2.19.3",
-    "react-dom": "^18",
+    "react-dom": "^19",
     "react-icons": "^5.3.0",
     "react-use": "^17.5.1",
     "replicate": "^1.0.0",
