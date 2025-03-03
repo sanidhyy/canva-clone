@@ -147,7 +147,7 @@
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.30.0",
     "eslint": "^9",
-    "eslint-config-next": "15.1.7",
+    "eslint-config-next": "15.2.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.1",
     "pg": "^8.13.0",
