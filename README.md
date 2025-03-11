@@ -132,6 +132,8 @@ canva-clone/
 4. Contents of `.env.local`:
 
 ```env
+# .env.local
+
 # disable next.js telemetry
 NEXT_TELEMETRY_DISABLED=1
 
