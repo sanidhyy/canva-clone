@@ -102,7 +102,7 @@ const app = new Hono()
         subscriptionId: subscription.id,
         customerId: subscription.customer as string,
         priceId: subscription.items.data[0].price.product as string,
-        currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+        currentPeriodEnd: new Date(subscription.items.data[0].current_period_end * 1000),
         createdAt: new Date(),
         updatedAt: new Date(),
       });
@@ -115,7 +115,7 @@ const app = new Hono()
         .update(subscriptions)
         .set({
           status: subscription.status,
-          currentPeriodEnd: new Date(subscription.current_period_end * 1000),
+          currentPeriodEnd: new Date(subscription.items.data[0].current_period_end * 1000),
           updatedAt: new Date(),
         })
         .where(eq(subscriptions.id, subscription.id));
