@@ -124,7 +124,7 @@
     "react-use": "^17.5.1",
     "replicate": "^1.0.0",
     "sonner": "^2.0.1",
-    "stripe": "^17.2.1",
+    "stripe": "18",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "unsplash-js": "^7.0.19",
