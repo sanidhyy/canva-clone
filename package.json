@@ -152,7 +152,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "pg": "^8.13.0",
     "postcss": "^8",
-    "prettier-plugin-tailwindcss": "^0.6.8",
+    "prettier-plugin-tailwindcss": "^0.7.1",
     "sort-classes": "npm:prettier-plugin-tailwindcss",
     "tailwindcss": "^3.4.1",
     "tidy-imports": "npm:@trivago/prettier-plugin-sort-imports",
