@@ -2,19 +2,21 @@
 
 import { Loader2, TriangleAlert } from 'lucide-react';
 import Link from 'next/link';
+import { use } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Editor } from '@/features/editor/components/editor';
 import { useGetProject } from '@/features/projects/api/use-get-project';
 
 interface EditorProjectIdPageProps {
-  params: {
+  params: Promise<{
     projectId: string;
-  };
+  }>;
 }
 
 const EditorProjectIdPage = ({ params }: EditorProjectIdPageProps) => {
-  const { data, isLoading, isError } = useGetProject(params.projectId);
+  const { projectId } = use(params);
+  const { data, isLoading, isError } = useGetProject(projectId);
 
   if (isLoading) {
     return (
