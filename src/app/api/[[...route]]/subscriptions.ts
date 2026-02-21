@@ -40,7 +40,11 @@ const app = new Hono()
       return ctx.json('Unauthorized!', 401);
     }
 
-    const [subscription] = await db.select().from(subscriptions).where(eq(subscriptions.userId, auth.token.id)).orderBy(desc(subscriptions.createdAt));
+    const [subscription] = await db
+      .select()
+      .from(subscriptions)
+      .where(eq(subscriptions.userId, auth.token.id))
+      .orderBy(desc(subscriptions.createdAt));
 
     const active = checkIsActive(subscription);
 

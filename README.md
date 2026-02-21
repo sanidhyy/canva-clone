@@ -44,6 +44,7 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
+
 ```bash
 canva-clone/
   |- drizzle/
@@ -122,6 +123,7 @@ canva-clone/
   |- tailwind.config.ts
   |- tsconfig.json
 ```
+
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />

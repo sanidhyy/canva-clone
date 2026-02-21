@@ -4,10 +4,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const jsdomStub = path.resolve(__dirname, 'src/lib/stubs/jsdom.js');
-const jsdomLivingUtilsStub = path.resolve(
-  __dirname,
-  'src/lib/stubs/jsdom-living-generated-utils.js',
-);
+const jsdomLivingUtilsStub = path.resolve(__dirname, 'src/lib/stubs/jsdom-living-generated-utils.js');
 const jsdomUtilsStub = path.resolve(__dirname, 'src/lib/stubs/jsdom-utils.js');
 
 /** @type {import('next').NextConfig} */
@@ -37,10 +34,7 @@ const nextConfig = {
     // in the browser that branch is never run.
     config.plugins.push(
       new webpack.NormalModuleReplacementPlugin(/^jsdom$/, jsdomStub),
-      new webpack.NormalModuleReplacementPlugin(
-        /^jsdom\/lib\/jsdom\/living\/generated\/utils$/,
-        jsdomLivingUtilsStub,
-      ),
+      new webpack.NormalModuleReplacementPlugin(/^jsdom\/lib\/jsdom\/living\/generated\/utils$/, jsdomLivingUtilsStub),
       new webpack.NormalModuleReplacementPlugin(/^jsdom\/lib\/jsdom\/utils$/, jsdomUtilsStub),
     );
     return config;
