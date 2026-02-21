@@ -47,66 +47,25 @@ Here is the folder structure of this app.
 ```bash
 canva-clone/
   |- drizzle/
+    |-- meta/
+    |-- 0000_busy_scourge.sql
+    |-- 0001_cultured_beast.sql
+    |-- 0002_glossy_cloak.sql
+    |-- 0003_clumsy_chat.sql
   |- public/
-    |-- bg.svg
-    |-- car_sale.json
-    |-- car_sale.png
-    |-- coming_soon.json
-    |-- coming_soon.png
-    |-- flash_sale.json
-    |-- flash_sale.png
-    |-- logo.svg
-    |-- travel.json
-    |-- travel.png
   |- src/
     |-- app/
-        |--- (auth)/
-        |--- (dashboard)/
-        |--- api/
-            |---- api/[[...route]]/
-            |---- auth/
-            |---- uploadthing/
-        |--- editor/[projectId]/
-        |--- apple-icon.png
-        |--- error.tsx
-        |--- favicon.ico
-        |--- globals.css
-        |--- icon1.png
-        |--- icon2.png
-        |--- layout.tsx
-        |--- not-found.tsx
     |-- components/
-        |--- ui/
-        |--- hint.tsx
-        |--- modal-provider.tsx
-        |--- providers.tsx
-        |--- query-provider.tsx
     |-- config/
-        |--- drizzle.ts
-        |--- schema.ts
     |-- db/
-        |--- index.ts
     |-- features/
-        |--- ai/
-        |--- auth/
-        |--- editor/
-        |--- images/
-        |--- projects/
-        |--- subscriptions/
     |-- hooks/
-        |--- use-confirm.tsx
     |-- lib/
-        |--- hono.ts
-        |--- replicate.ts
-        |--- stripe.ts
-        |--- unsplash.ts
-        |--- uploadthing.ts
-        |--- utils.ts
     |-- auth.config.ts
     |-- auth.ts
     |-- middleware.ts
   |- .env.example
-  |- .env.local
+  |- .env/.env.local
   |- .eslintrc.json
   |- .gitignore
   |- .prettierrc.json
@@ -117,10 +76,10 @@ canva-clone/
   |- environment.d.ts
   |- next.config.mjs
   |- package.json
-  |- postcss.config.js
-  |- README.md
+  |- postcss.config.mjs
   |- tailwind.config.ts
   |- tsconfig.json
+  |- vercel.ts
 ```
 <!--- FOLDER_STRUCTURE_END --->
 
@@ -287,77 +246,79 @@ Useful resources and dependencies that are used in Canva Clone.
 <!--- DEPENDENCIES_START --->
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.37.0
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.7.0
+- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.6
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
-- [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.4.1
-- [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^0.10.1
-- [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^2.2.2
-- [@radix-ui/react-alert-dialog](https://www.npmjs.com/package/@radix-ui/react-alert-dialog): ^1.1.2
-- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.1
-- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.2
-- [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.2
-- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.0
-- [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.0
-- [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.0
-- [@radix-ui/react-slider](https://www.npmjs.com/package/@radix-ui/react-slider): ^1.2.1
-- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.1.0
-- [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.1.3
-- [@radix-ui/react-visually-hidden](https://www.npmjs.com/package/@radix-ui/react-visually-hidden): ^1.1.0
-- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.59.13
-- [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^7.0.3
-- [bcryptjs](https://www.npmjs.com/package/bcryptjs): ^2.4.3
-- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.0
-- [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
-- [crypto](https://www.npmjs.com/package/crypto): ^1.0.1
-- [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
-- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.35.1
-- [drizzle-zod](https://www.npmjs.com/package/drizzle-zod): ^0.5.1
-- [fabric](https://www.npmjs.com/package/fabric): 5.3.0-browser
-- [hono](https://www.npmjs.com/package/hono): ^4.6.4
-- [jsdom](https://www.npmjs.com/package/jsdom): ^25.0.1
-- [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.447.0
-- [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
-- [next](https://www.npmjs.com/package/next): 14.2.14
-- [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.22
-- [next-themes](https://www.npmjs.com/package/next-themes): ^0.3.0
-- [react](https://www.npmjs.com/package/react): ^18
-- [react-color](https://www.npmjs.com/package/react-color): ^2.19.3
-- [react-dom](https://www.npmjs.com/package/react-dom): ^18
-- [react-icons](https://www.npmjs.com/package/react-icons): ^5.3.0
-- [react-use](https://www.npmjs.com/package/react-use): ^17.5.1
-- [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
-- [sonner](https://www.npmjs.com/package/sonner): ^1.5.0
-- [stripe](https://www.npmjs.com/package/stripe): ^17.2.1
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^2.5.3
-- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
-- [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^7.0.19
-- [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
-- [use-file-picker](https://www.npmjs.com/package/use-file-picker): ^2.1.2
-- [zod](https://www.npmjs.com/package/zod): ^3.23.8
-- [zustand](https://www.npmjs.com/package/zustand): ^5.0.0
-- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.25.7
-- [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^4.3.0
-- [@types/bcryptjs](https://www.npmjs.com/package/@types/bcryptjs): ^2.4.6
+- [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.7.0
+- [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
+- [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^3.3.0
+- [@radix-ui/react-alert-dialog](https://www.npmjs.com/package/@radix-ui/react-alert-dialog): ^1.1.15
+- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
+- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
+- [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.16
+- [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.8
+- [@radix-ui/react-scroll-area](https://www.npmjs.com/package/@radix-ui/react-scroll-area): ^1.2.10
+- [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.8
+- [@radix-ui/react-slider](https://www.npmjs.com/package/@radix-ui/react-slider): ^1.3.6
+- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
+- [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.2.8
+- [@radix-ui/react-visually-hidden](https://www.npmjs.com/package/@radix-ui/react-visually-hidden): ^1.2.4
+- [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.90.21
+- [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^6.0.0
+- [@types/bcryptjs](https://www.npmjs.com/package/@types/bcryptjs): ^3.0.0
 - [@types/fabric](https://www.npmjs.com/package/@types/fabric): 5.3.0
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/material-colors](https://www.npmjs.com/package/@types/material-colors): ^1.2.3
-- [@types/node](https://www.npmjs.com/package/@types/node): ^20
-- [@types/react](https://www.npmjs.com/package/@types/react): ^18
-- [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.12
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^18
-- [dotenv](https://www.npmjs.com/package/dotenv): ^16.4.5
-- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.26.2
-- [eslint](https://www.npmjs.com/package/eslint): ^8
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 14.2.14
-- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^9.1.0
+- [@types/node](https://www.npmjs.com/package/@types/node): ^25.2.3
+- [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.14
+- [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.3
+- [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^7.0.3
+- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.0.33
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs): ^3.0.3
+- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
+- [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
+- [crypto](https://www.npmjs.com/package/crypto): ^1.0.1
+- [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
+- [dotenv](https://www.npmjs.com/package/dotenv): ^17.3.1
+- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.0
+- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.0
+- [drizzle-zod](https://www.npmjs.com/package/drizzle-zod): ^0.5.1
+- [eslint](https://www.npmjs.com/package/eslint): ^10
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.1.6
+- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.0.1
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.2.1
-- [pg](https://www.npmjs.com/package/pg): ^8.13.0
+- [fabric](https://www.npmjs.com/package/fabric): 5.3.0-browser
+- [hono](https://www.npmjs.com/package/hono): ^4.6.4
+- [jsdom](https://www.npmjs.com/package/jsdom): ^28.0.0
+- [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.564.0
+- [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
+- [next](https://www.npmjs.com/package/next): 15.5.10
+- [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.22
+- [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
+- [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.6.8
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.7.1
+- [react](https://www.npmjs.com/package/react): ^19.2.4
+- [react-color](https://www.npmjs.com/package/react-color): ^2.19.3
+- [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.4
+- [react-icons](https://www.npmjs.com/package/react-icons): ^5.5.0
+- [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
+- [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
+- [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
 - [sort-classes](https://www.npmjs.com/package/sort-classes): npm:prettier-plugin-tailwindcss
+- [stripe](https://www.npmjs.com/package/stripe): 20.3.1
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
+- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
 - [tidy-imports](https://www.npmjs.com/package/tidy-imports): npm:@trivago/prettier-plugin-sort-imports
-- [typescript](https://www.npmjs.com/package/typescript): ^5.6.2
+- [typescript](https://www.npmjs.com/package/typescript): ^5.9.3
+- [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^7.0.20
+- [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
+- [use-file-picker](https://www.npmjs.com/package/use-file-picker): ^2.1.4
+- [zod](https://www.npmjs.com/package/zod): ^4.3.6
+- [zustand](https://www.npmjs.com/package/zustand): ^5.0.11
+
 <!--- DEPENDENCIES_END --->
 
 ## :coffee: Buy Me a Coffee
