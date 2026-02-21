@@ -1,5 +1,5 @@
-import { parsers as tailwindPluginParsers } from 'sort-classes';
-import pluginSortImports from 'tidy-imports';
+import pluginSortImports from '@trivago/prettier-plugin-sort-imports';
+import { parsers as tailwindPluginParsers } from 'prettier-plugin-tailwindcss';
 
 /**
  * @refs  https://github.com/tailwindlabs/prettier-plugin-tailwindcss/issues/31#issuecomment-1195411734
