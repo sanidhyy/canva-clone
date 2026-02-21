@@ -43,6 +43,7 @@
 
 Here is the folder structure of this app.
 
+<!--- FOLDER_STRUCTURE_START --->
 ```bash
 canva-clone/
   |- drizzle/
@@ -121,6 +122,7 @@ canva-clone/
   |- tailwind.config.ts
   |- tsconfig.json
 ```
+<!--- FOLDER_STRUCTURE_END --->
 
 <br />
 
@@ -282,6 +284,7 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in Canva Clone.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
+<!--- DEPENDENCIES_START --->
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.37.0
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.7.0
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
@@ -355,6 +358,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [tidy-imports](https://www.npmjs.com/package/tidy-imports): npm:@trivago/prettier-plugin-sort-imports
 - [typescript](https://www.npmjs.com/package/typescript): ^5.6.2
+<!--- DEPENDENCIES_END --->
 
 ## :coffee: Buy Me a Coffee
 
