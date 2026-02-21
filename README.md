@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 canva-clone/
   |- drizzle/
@@ -82,7 +81,6 @@ canva-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -308,12 +306,10 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
 - [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
-- [sort-classes](https://www.npmjs.com/package/sort-classes): npm:prettier-plugin-tailwindcss
 - [stripe](https://www.npmjs.com/package/stripe): 20.3.1
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
-- [tidy-imports](https://www.npmjs.com/package/tidy-imports): npm:@trivago/prettier-plugin-sort-imports
 - [typescript](https://www.npmjs.com/package/typescript): ^5.9.3
 - [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^7.0.20
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
