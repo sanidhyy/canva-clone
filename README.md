@@ -55,12 +55,46 @@ canva-clone/
   |- public/
   |- src/
     |-- app/
+      |--- (auth)/
+      |--- (dashboard)/
+      |--- api/
+      |--- editor/
+      |--- apple-icon.png
+      |--- error.tsx
+      |--- favicon.ico
+      |--- globals.css
+      |--- icon1.png
+      |--- icon2.png
+      |--- layout.tsx
+      |--- not-found.tsx
     |-- components/
+      |--- ui/
+      |--- hint.tsx
+      |--- modal-provider.tsx
+      |--- providers.tsx
+      |--- query-provider.tsx
     |-- config/
+      |--- index.ts
     |-- db/
+      |--- drizzle.ts
+      |--- schema.ts
     |-- features/
+      |--- ai/
+      |--- auth/
+      |--- editor/
+      |--- images/
+      |--- projects/
+      |--- subscriptions/
     |-- hooks/
+      |--- use-confirm.tsx
     |-- lib/
+      |--- stubs/
+      |--- hono.ts
+      |--- replicate.ts
+      |--- stripe.ts
+      |--- unsplash.ts
+      |--- uploadthing.ts
+      |--- utils.ts
     |-- auth.config.ts
     |-- auth.ts
     |-- middleware.ts
