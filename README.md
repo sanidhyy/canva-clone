@@ -325,7 +325,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [hono](https://www.npmjs.com/package/hono): ^4.6.4
 - [jsdom](https://www.npmjs.com/package/jsdom): ^28.0.0
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.576.0
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^0.577.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
 - [next](https://www.npmjs.com/package/next): 15.5.10
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.22
@@ -340,7 +340,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
 - [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
-- [stripe](https://www.npmjs.com/package/stripe): 20.4.0
+- [stripe](https://www.npmjs.com/package/stripe): 20.4.1
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
