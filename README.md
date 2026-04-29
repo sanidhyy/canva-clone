@@ -332,7 +332,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.7.1
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.0
 - [react](https://www.npmjs.com/package/react): ^19.2.4
 - [react-color](https://www.npmjs.com/package/react-color): ^2.19.3
 - [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.4
@@ -340,7 +340,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
 - [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
-- [stripe](https://www.npmjs.com/package/stripe): 22.0.2
+- [stripe](https://www.npmjs.com/package/stripe): 22.1.0
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
