@@ -39,7 +39,7 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
       },
       {
         onSuccess: ({ data }) => {
-          editor?.addImage(data);
+          if (data) editor?.addImage(data);
         },
         onError: (error) => {
           console.error(error);
