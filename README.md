@@ -282,7 +282,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.7.0
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^7.28.6
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
-- [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.7.0
+- [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.8.0
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
 - [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^3.3.0
 - [@radix-ui/react-alert-dialog](https://www.npmjs.com/package/@radix-ui/react-alert-dialog): ^1.1.15
@@ -322,7 +322,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.0.1
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.2.1
 - [fabric](https://www.npmjs.com/package/fabric): 5.3.0-browser
-- [hono](https://www.npmjs.com/package/hono): ^4.6.4
+- [hono](https://www.npmjs.com/package/hono): ^4.12.19
 - [jsdom](https://www.npmjs.com/package/jsdom): ^29.0.0
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.6.0
