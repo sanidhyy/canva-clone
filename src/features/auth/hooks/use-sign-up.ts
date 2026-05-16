@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { InferRequestType, InferResponseType } from 'hono';
+import { ZodError } from 'zod';
 
 import { client } from '@/lib/hono';
 
@@ -13,7 +14,7 @@ export const useSignUp = () => {
 
       const data = await response.json();
 
-      if (data?.error) throw new Error(data.error);
+      if (data?.error) throw new Error(data.error instanceof ZodError ? data.error.message : data.error);
       if (!response.ok) throw new Error('An unknown error occured.');
 
       return data;

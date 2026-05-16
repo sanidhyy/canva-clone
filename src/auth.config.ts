@@ -61,6 +61,7 @@ export default {
     signIn: '/sign-in',
     error: '/sign-in',
   },
+  secret: process.env.AUTH_SECRET,
   session: {
     strategy: 'jwt',
   },

@@ -35,7 +35,7 @@ export const AiSidebar = ({ editor, activeTool, onChangeActiveTool }: AiSidebarP
       { prompt },
       {
         onSuccess: ({ data }) => {
-          editor?.addImage(data);
+          if (data) editor?.addImage(data);
           setPrompt('');
         },
         onError: (error) => {
