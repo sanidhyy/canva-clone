@@ -13,6 +13,9 @@ declare global {
       // replicate api token
       REPLICATE_API_TOKEN: string;
 
+      // Added by `npx auth`. Read more: https://cli.authjs.dev
+      AUTH_SECRET: string;
+
       // postgres neon db url
       DATABASE_URL: string;
 
