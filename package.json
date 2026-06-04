@@ -128,7 +128,7 @@
     "stripe": "22.2.0",
     "tailwind-merge": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
-    "unsplash-js": "^7.0.20",
+    "unsplash-js": "^8.0.0",
     "uploadthing": "^7.1.0",
     "use-file-picker": "^2.1.4",
     "zod": "^4.3.6",
