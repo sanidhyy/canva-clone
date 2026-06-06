@@ -345,7 +345,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
 - [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
 - [typescript](https://www.npmjs.com/package/typescript): ^6.0.2
-- [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^7.0.20
+- [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^8.0.0
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
 - [use-file-picker](https://www.npmjs.com/package/use-file-picker): ^2.1.4
 - [zod](https://www.npmjs.com/package/zod): ^4.3.6
