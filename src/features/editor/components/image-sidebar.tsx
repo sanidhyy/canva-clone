@@ -48,7 +48,7 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            editor?.addImage(res[0].url);
+            editor?.addImage(res[0].ufsUrl);
           }}
         />
       </div>
@@ -77,7 +77,7 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
                     onClick={() => editor?.addImage(image.urls.regular)}
                     className="group relative h-[100px] w-full overflow-hidden rounded-sm border bg-muted transition hover:opacity-75"
                   >
-                    <Image fill src={image.urls.small} alt={image.alt_description || 'Image from unsplash'} className="object-cover" />
+                    <Image fill src={image.urls.small} alt={image.description || 'Image from unsplash'} className="object-cover" />
 
                     <Link
                       href={image.links.html}
