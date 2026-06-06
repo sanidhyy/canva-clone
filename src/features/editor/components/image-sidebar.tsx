@@ -69,7 +69,13 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
       )}
 
       <ScrollArea>
-        <div className="p-4">
+        <div className="p-4 space-y-4">
+          <div className="flex items-center justify-center">
+            <Link href="https://unsplash.com/?utm_source=image-ai&utm_medium=referral" target="_blank">
+              <Image src="/unsplash.svg" alt="Unsplash" width={140} height={60} />
+            </Link>
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             {data &&
               data.map((image) => {
