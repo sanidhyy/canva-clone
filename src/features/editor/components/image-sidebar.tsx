@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { type ActiveTool, type Editor } from '@/features/editor/types';
+import { useDownloadImage } from '@/features/images/api/use-download-image';
 import { useGetImages } from '@/features/images/api/use-get-images';
 import { UploadButton } from '@/lib/uploadthing';
 import { cn } from '@/lib/utils';
@@ -20,6 +21,7 @@ interface ImageSidebarProps {
 
 export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSidebarProps) => {
   const { data, isLoading, isError } = useGetImages();
+  const { mutate: downloadImage } = useDownloadImage();
 
   const onClose = () => onChangeActiveTool('select');
 
@@ -48,7 +50,7 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            editor?.addImage(res[0].url);
+            editor?.addImage(res[0].ufsUrl);
           }}
         />
       </div>
@@ -67,20 +69,34 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
       )}
 
       <ScrollArea>
-        <div className="p-4">
+        <div className="p-4 space-y-4">
+          <div className="flex items-center justify-center">
+            <Link href="https://unsplash.com/?utm_source=image-ai&utm_medium=referral" target="_blank">
+              <Image src="/unsplash.svg" alt="Unsplash" width={140} height={60} />
+            </Link>
+          </div>
+
           <div className="grid grid-cols-2 gap-4">
             {data &&
               data.map((image) => {
+                const attributionLink = `${image.links.html.split('?')[0]}?utm_source=image-ai&utm_medium=referral`;
+
+                const handleImageClick = () => {
+                  editor?.addImage(image.urls.regular);
+                  downloadImage({ imageId: image.id });
+                };
+
                 return (
                   <button
                     key={image.id}
-                    onClick={() => editor?.addImage(image.urls.regular)}
+                    onClick={handleImageClick}
                     className="group relative h-[100px] w-full overflow-hidden rounded-sm border bg-muted transition hover:opacity-75"
                   >
-                    <Image fill src={image.urls.small} alt={image.alt_description || 'Image from unsplash'} className="object-cover" />
+                    <Image fill src={image.urls.small} alt={image.description || 'Image from unsplash'} className="object-cover" />
 
                     <Link
-                      href={image.links.html}
+                      onClick={(e) => e.stopPropagation()}
+                      href={attributionLink}
                       target="_blank"
                       className="absolute bottom-0 left-0 w-full truncate bg-black/50 p-1 text-left text-[10px] text-white opacity-0 hover:underline group-hover:opacity-100"
                     >
