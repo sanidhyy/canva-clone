@@ -302,7 +302,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@types/fabric](https://www.npmjs.com/package/@types/fabric): 5.3.0
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/material-colors](https://www.npmjs.com/package/@types/material-colors): ^1.2.3
-- [@types/node](https://www.npmjs.com/package/@types/node): ^25.2.3
+- [@types/node](https://www.npmjs.com/package/@types/node): ^26.0.1
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.14
 - [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.3
