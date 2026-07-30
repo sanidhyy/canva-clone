@@ -278,8 +278,8 @@ Useful resources and dependencies that are used in Canva Clone.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 <!--- DEPENDENCIES_START --->
-- [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.37.0
-- [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.7.0
+- [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
+- [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.0
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
 - [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.9.0
@@ -328,7 +328,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.6.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
 - [next](https://www.npmjs.com/package/next): 15.5.21
-- [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.22
+- [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
