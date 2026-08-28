@@ -8,7 +8,11 @@ labels: ['bug']
 **Describe the bug**
 A short description of what went wrong.
 
-**To reproduce** 1. 2. 3.
+**To reproduce**
+
+1.
+2.
+3.
 
 **Expected behavior**
 What you expected to happen.
