@@ -13,7 +13,7 @@ const app = new Hono().post(
     'json',
     z.object({
       name: z.string(),
-      email: z.string().email(),
+      email: z.email(),
       password: z.string().min(3).max(24),
     }),
   ),
