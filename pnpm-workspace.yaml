@@ -1,4 +1,5 @@
 allowBuilds:
+  canvas: false
   esbuild: false
   msgpackr-extract: false
   sharp: false
