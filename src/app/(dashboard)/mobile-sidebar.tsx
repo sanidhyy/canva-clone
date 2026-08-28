@@ -2,25 +2,22 @@
 
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { MenuIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { useIsClient } from '@/hooks/use-is-client';
 
 import { Logo } from './logo';
 import { SidebarRoutes } from './sidebar-routes';
 
 export const MobileSidebar = () => {
   const [open, setOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const isClient = useIsClient();
 
   const onClick = () => setOpen(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
+  if (!isClient) return null;
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
