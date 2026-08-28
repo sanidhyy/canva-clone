@@ -1,7 +1,7 @@
 'use client';
 
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -15,6 +15,12 @@ export const RenameProjectModal = () => {
   const { mutate: updateProject, isPending: isUpdatingProject } = useUpdateProject(id);
 
   const [name, setName] = useState(title);
+  const [prevTitle, setPrevTitle] = useState(title);
+
+  if (title !== prevTitle) {
+    setPrevTitle(title);
+    setName(title);
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,10 +38,6 @@ export const RenameProjectModal = () => {
       },
     );
   };
-
-  useEffect(() => {
-    setName(title);
-  }, [title]);
 
   return (
     <Dialog open={isOpen || isUpdatingProject} onOpenChange={onClose}>

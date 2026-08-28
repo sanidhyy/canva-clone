@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Slider } from '@/components/ui/slider';
@@ -15,10 +15,15 @@ interface OpacitySidebarProps {
 }
 
 export const OpacitySidebar = ({ editor, activeTool, onChangeActiveTool }: OpacitySidebarProps) => {
-  const initialOpacity = editor?.getActiveOpacity() || 1;
-
   const selectedObject = useMemo(() => editor?.selectedObjects[0], [editor?.selectedObjects]);
-  const [opacity, setOpacity] = useState(initialOpacity);
+  const selectedOpacity = selectedObject?.get('opacity') || 1;
+  const [opacity, setOpacity] = useState(selectedOpacity);
+  const [prevSelectedObject, setPrevSelectedObject] = useState(selectedObject);
+
+  if (selectedObject !== prevSelectedObject) {
+    setPrevSelectedObject(selectedObject);
+    setOpacity(selectedOpacity);
+  }
 
   const onClose = () => onChangeActiveTool('select');
 
@@ -26,10 +31,6 @@ export const OpacitySidebar = ({ editor, activeTool, onChangeActiveTool }: Opaci
     editor?.changeOpacity(opacity);
     setOpacity(opacity);
   };
-
-  useEffect(() => {
-    if (selectedObject) setOpacity(selectedObject.get('opacity') || 1);
-  }, [selectedObject]);
 
   return (
     <aside className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'opacity' ? 'visible' : 'hidden')}>

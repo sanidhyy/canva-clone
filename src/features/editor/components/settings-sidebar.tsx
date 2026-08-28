@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,12 +27,24 @@ export const SettingsSidebar = ({ editor, activeTool, onChangeActiveTool }: Sett
   const [width, setWidth] = useState(initialWidth);
   const [height, setHeight] = useState(initialHeight);
   const [background, setBackground] = useState(initialBackground);
+  const [prevInitialWidth, setPrevInitialWidth] = useState(initialWidth);
+  const [prevInitialHeight, setPrevInitialHeight] = useState(initialHeight);
+  const [prevInitialBackground, setPrevInitialBackground] = useState(initialBackground);
 
-  useEffect(() => {
+  if (initialWidth !== prevInitialWidth) {
+    setPrevInitialWidth(initialWidth);
     setWidth(initialWidth);
+  }
+
+  if (initialHeight !== prevInitialHeight) {
+    setPrevInitialHeight(initialHeight);
     setHeight(initialHeight);
+  }
+
+  if (initialBackground !== prevInitialBackground) {
+    setPrevInitialBackground(initialBackground);
     setBackground(initialBackground);
-  }, [initialWidth, initialHeight, initialBackground]);
+  }
 
   const changeWidth = (width: string) => setWidth(width);
   const changeHeight = (height: string) => setHeight(height);
