@@ -12,7 +12,7 @@ interface UseHistoryProps {
 export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
   const [historyIndex, setHistoryIndex] = useState(0);
 
-  const canvasHistory = useRef<string[]>([]);
+  const canvasHistoryRef = useRef<string[]>([]);
   const skipSave = useRef(false);
 
   const canUndo = useCallback(() => {
@@ -20,7 +20,7 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
   }, [historyIndex]);
 
   const canRedo = useCallback(() => {
-    return historyIndex < canvasHistory.current.length - 1;
+    return historyIndex < canvasHistoryRef.current.length - 1;
   }, [historyIndex]);
 
   const save = useCallback(
@@ -31,8 +31,8 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
       const json = JSON.stringify(currentState);
 
       if (!skip && !skipSave.current) {
-        canvasHistory.current.push(json);
-        setHistoryIndex(canvasHistory.current.length - 1);
+        canvasHistoryRef.current.push(json);
+        setHistoryIndex(canvasHistoryRef.current.length - 1);
       }
 
       const workspace = getWorkspace(canvas);
@@ -51,7 +51,7 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
       canvas?.renderAll();
 
       const previousIndex = historyIndex - 1;
-      const previousState = JSON.parse(canvasHistory.current[previousIndex]);
+      const previousState = JSON.parse(canvasHistoryRef.current[previousIndex]);
 
       void canvas?.loadFromJSON(previousState).then(() => {
         canvas.renderAll();
@@ -68,7 +68,7 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
       canvas?.renderAll();
 
       const nextIndex = historyIndex + 1;
-      const nextState = JSON.parse(canvasHistory.current[nextIndex]);
+      const nextState = JSON.parse(canvasHistoryRef.current[nextIndex]);
 
       void canvas?.loadFromJSON(nextState).then(() => {
         canvas.renderAll();
@@ -78,5 +78,5 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
     }
   }, [canRedo, canvas, historyIndex]);
 
-  return { save, canUndo, canRedo, undo, redo, setHistoryIndex, canvasHistory };
+  return { save, canUndo, canRedo, undo, redo, setHistoryIndex, canvasHistoryRef };
 };

@@ -581,7 +581,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
   const [strokeWidth, setStrokeWidth] = useState(STROKE_WIDTH);
   const [strokeDashArray, setStrokeDashArray] = useState<number[]>(STROKE_DASH_ARRAY);
 
-  const { save, canRedo, canUndo, undo, redo, canvasHistory, setHistoryIndex } = useHistory({
+  const { save, canRedo, canUndo, undo, redo, canvasHistoryRef, setHistoryIndex } = useHistory({
     canvas,
     saveCallback,
   });
@@ -615,7 +615,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
     canvas,
     autoZoom,
     initialState,
-    canvasHistory,
+    canvasHistoryRef,
     setHistoryIndex,
   });
 
@@ -702,11 +702,11 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
 
       const currentState = JSON.stringify(initialCanvas.toObject(JSON_KEYS));
 
-      canvasHistory.current = [currentState];
+      canvasHistoryRef.current = [currentState];
       setHistoryIndex(0);
     },
     // No need, this is from set state
-    [canvasHistory, setHistoryIndex],
+    [canvasHistoryRef, setHistoryIndex],
   );
 
   return { init, editor };
