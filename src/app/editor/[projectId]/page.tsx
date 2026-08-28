@@ -33,7 +33,9 @@ const EditorProjectIdPage = ({ params }: EditorProjectIdPageProps) => {
         <p className="text-sm text-muted-foreground">Failed to fetch project.</p>
 
         <Button size="sm" variant="secondary" asChild>
-          <Link href="/">Back to home</Link>
+          <Link prefetch href="/">
+            Back to home
+          </Link>
         </Button>
       </div>
     );

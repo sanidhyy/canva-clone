@@ -14,7 +14,7 @@ interface SidebarItemProps {
 
 export const SidebarItem = ({ icon: Icon, label, href, isActive, onClick }: SidebarItemProps) => {
   return (
-    <Link href={href} onClick={onClick}>
+    <Link prefetch href={href} onClick={onClick}>
       <div className={cn('flex items-center rounded-xl bg-transparent p-3 transition hover:bg-white', isActive && 'bg-white')}>
         <Icon className="mr-2 size-4" />
 

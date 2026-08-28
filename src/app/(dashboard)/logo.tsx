@@ -15,7 +15,7 @@ interface LogoProps {
 
 export const Logo = ({ className }: LogoProps) => {
   return (
-    <Link href="/" className={cn(className)}>
+    <Link prefetch href="/" className={cn(className)}>
       <div className="flex h-[68px] items-center gap-x-2 px-4 transition hover:opacity-75">
         <div className="relative size-8">
           <Image src="/logo.svg" alt="Image AI" fill />

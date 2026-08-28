@@ -98,7 +98,7 @@ export const SignUpCard = () => {
 
         <p className="text-xs text-muted-foreground">
           Already have an account?{' '}
-          <Link href="/sign-in">
+          <Link prefetch href="/sign-in">
             <span className="text-sky-700 hover:underline">Sign in</span>
           </Link>
         </p>

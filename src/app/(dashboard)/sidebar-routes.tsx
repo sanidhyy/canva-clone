@@ -67,7 +67,7 @@ export const SidebarRoutes = ({ onClick = () => {} }: SidebarRoutesProps) => {
       <ul className="flex flex-col gap-y-1 px-3">
         {!shouldBlock && <SidebarItem href={pathname} label="Billing" icon={CreditCard} onClick={handleBilling} />}
 
-        <Link href={links.sourceCode} onClick={onClick} target="_blank" rel="noreferrer noopener">
+        <Link prefetch href={links.sourceCode} onClick={onClick} target="_blank" rel="noreferrer noopener">
           <div className="flex items-center rounded-xl bg-transparent p-3 transition hover:bg-white">
             <BsGithub className="mr-2 size-4" />
 

@@ -26,7 +26,7 @@ const NotFoundPage = () => {
           </Button>
 
           <Button asChild>
-            <Link href="/">
+            <Link prefetch href="/">
               <Home className="mr-2 size-4" />
               Return to Home
             </Link>

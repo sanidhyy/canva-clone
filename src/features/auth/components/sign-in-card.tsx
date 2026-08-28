@@ -88,7 +88,7 @@ export const SignInCard = () => {
 
         <p className="text-xs text-muted-foreground">
           Don&apos;t have an account?{' '}
-          <Link href="/sign-up">
+          <Link prefetch href="/sign-up">
             <span className="text-sky-700 hover:underline">Sign up</span>
           </Link>
         </p>

@@ -23,7 +23,7 @@ const ErrorPage = ({ error, reset }: { error: Error & { digest?: string }; reset
 
         <div className="flex items-center justify-center space-x-4">
           <Button variant="outline" asChild>
-            <Link href="/">
+            <Link prefetch href="/">
               <Home className="mr-2 size-4" />
               Back to Home
             </Link>
