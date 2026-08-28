@@ -243,4 +243,4 @@ export interface Editor {
 
   canvas: Canvas;
   selectedObjects: FabricObject[];
-};
+}

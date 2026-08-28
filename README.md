@@ -287,7 +287,9 @@ You might encounter some bugs while using this app. You are more than welcome to
 Useful resources and dependencies that are used in Canva Clone.
 
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
+
 <!--- DEPENDENCIES_START --->
+
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.0
