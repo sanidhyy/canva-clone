@@ -2,7 +2,7 @@
 
 import * as fabric from 'fabric';
 import debounce from 'lodash.debounce';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { useEditor } from '@/features/editor/hooks/use-editor';
 import { type ActiveTool, selectionDependentTools } from '@/features/editor/types';
@@ -39,13 +39,15 @@ export const Editor = ({ initialData }: EditorProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedSave = useCallback(
-    debounce((values: { json: string; height: number; width: number }) => {
-      updateProject(values);
-    }, 500),
+  const debouncedSave = useMemo(
+    () =>
+      debounce((values: { json: string; height: number; width: number }) => {
+        updateProject(values);
+      }, 500),
     [updateProject],
   );
+
+  useEffect(() => () => debouncedSave.cancel(), [debouncedSave]);
 
   const onClearSelection = useCallback(() => {
     if (selectionDependentTools.includes(activeTool)) setActiveTool('select');
