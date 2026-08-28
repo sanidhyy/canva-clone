@@ -15,9 +15,6 @@ const eslintConfig = defineConfig([
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
-      'react-hooks/set-state-in-effect': 'off',
-      'react-hooks/immutability': 'off',
-      'react-hooks/use-memo': 'off',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
   },
