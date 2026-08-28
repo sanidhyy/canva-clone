@@ -1,7 +1,8 @@
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import { useCallback, useRef, useState } from 'react';
 
 import { JSON_KEYS } from '@/features/editor/types';
+import { getWorkspace } from '@/features/editor/utils';
 
 interface UseHistoryProps {
   canvas: fabric.Canvas | null;
@@ -26,7 +27,7 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
     (skip = false) => {
       if (!canvas) return;
 
-      const currentState = canvas.toJSON(JSON_KEYS);
+      const currentState = canvas.toObject(JSON_KEYS);
       const json = JSON.stringify(currentState);
 
       if (!skip && !skipSave.current) {
@@ -34,7 +35,7 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
         setHistoryIndex(canvasHistory.current.length - 1);
       }
 
-      const workspace = canvas.getObjects().find((object) => object.name === 'clip');
+      const workspace = getWorkspace(canvas);
       const height = workspace?.height || 0;
       const width = workspace?.width || 0;
 
@@ -46,12 +47,13 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
   const undo = useCallback(() => {
     if (canUndo()) {
       skipSave.current = true;
-      canvas?.clear().renderAll();
+      canvas?.clear();
+      canvas?.renderAll();
 
       const previousIndex = historyIndex - 1;
       const previousState = JSON.parse(canvasHistory.current[previousIndex]);
 
-      canvas?.loadFromJSON(previousState, () => {
+      void canvas?.loadFromJSON(previousState).then(() => {
         canvas.renderAll();
         setHistoryIndex(previousIndex);
         skipSave.current = false;
@@ -62,12 +64,13 @@ export const useHistory = ({ canvas, saveCallback }: UseHistoryProps) => {
   const redo = useCallback(() => {
     if (canRedo()) {
       skipSave.current = true;
-      canvas?.clear().renderAll();
+      canvas?.clear();
+      canvas?.renderAll();
 
       const nextIndex = historyIndex + 1;
       const nextState = JSON.parse(canvasHistory.current[nextIndex]);
 
-      canvas?.loadFromJSON(nextState, () => {
+      void canvas?.loadFromJSON(nextState).then(() => {
         canvas.renderAll();
         setHistoryIndex(nextIndex);
         skipSave.current = false;

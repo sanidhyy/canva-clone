@@ -1,10 +1,10 @@
-import { fabric } from 'fabric';
+import type { Canvas, FabricObject } from 'fabric';
 import { useEffect } from 'react';
 
 interface UseCanvasEventsProps {
-  canvas: fabric.Canvas | null;
+  canvas: Canvas | null;
   save: () => void;
-  setSelectedObjects: (selectedObjects: fabric.Object[]) => void;
+  setSelectedObjects: (selectedObjects: FabricObject[]) => void;
   clearSelectionCallback?: () => void;
 }
 

@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import { useEvent } from 'react-use';
 
 interface UseHotkeysProps {
@@ -52,10 +52,12 @@ export const useHotkeys = ({ canvas, undo, redo, save, copy, paste }: UseHotkeys
       event.preventDefault();
       canvas?.discardActiveObject();
 
-      const allObjects = canvas?.getObjects().filter((object) => object.selectable);
+      const allObjects = canvas?.getObjects().filter((object) => object.selectable) ?? [];
 
-      canvas?.setActiveObject(new fabric.ActiveSelection(allObjects, { canvas }));
-      canvas?.renderAll();
+      if (canvas && allObjects.length > 0) {
+        canvas.setActiveObject(new fabric.ActiveSelection(allObjects, { canvas }));
+        canvas.renderAll();
+      }
     }
   });
 };

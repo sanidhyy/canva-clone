@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import { useCallback, useRef } from 'react';
 
 interface UseClipboardProps {
@@ -6,41 +6,47 @@ interface UseClipboardProps {
 }
 
 export const useClipboard = ({ canvas }: UseClipboardProps) => {
-  const clipboard = useRef<any>(null);
+  const clipboard = useRef<fabric.FabricObject | null>(null);
 
   const copy = useCallback(() => {
-    canvas?.getActiveObject()?.clone((cloned: any) => {
+    const activeObject = canvas?.getActiveObject();
+    if (!activeObject) return;
+
+    void activeObject.clone().then((cloned) => {
       clipboard.current = cloned;
     });
   }, [canvas]);
 
   const paste = useCallback(() => {
-    if (!clipboard.current) return;
+    const cloned = clipboard.current;
+    if (!cloned || !canvas) return;
 
-    clipboard.current.clone((clonedObject: any) => {
-      canvas?.discardActiveObject();
+    void cloned.clone().then((clonedObject) => {
+      canvas.discardActiveObject();
       clonedObject.set({
-        left: clonedObject.left + 10,
-        top: clonedObject.top + 10,
+        left: (clonedObject.left ?? 0) + 10,
+        top: (clonedObject.top ?? 0) + 10,
         evented: true,
       });
 
-      if (clonedObject.type === 'activeSelection') {
+      if (clonedObject instanceof fabric.ActiveSelection) {
         clonedObject.canvas = canvas;
-        clonedObject.forEachObject((object: any) => {
-          canvas?.add(object);
+        clonedObject.forEachObject((object) => {
+          canvas.add(object);
         });
 
         clonedObject.setCoords();
       } else {
-        canvas?.add(clonedObject);
+        canvas.add(clonedObject);
       }
 
-      clipboard.current.left += 10;
-      clipboard.current.top += 10;
+      cloned.set({
+        left: (cloned.left ?? 0) + 10,
+        top: (cloned.top ?? 0) + 10,
+      });
 
-      canvas?.setActiveObject(clonedObject);
-      canvas?.requestRenderAll();
+      canvas.setActiveObject(clonedObject);
+      canvas.requestRenderAll();
     });
   }, [canvas]);
 

@@ -1,5 +1,4 @@
-import { fabric } from 'fabric';
-import type { ITextboxOptions } from 'fabric/fabric-impl';
+import type { Canvas, FabricObject, TextboxProps } from 'fabric';
 import material from 'material-colors';
 
 export const JSON_KEYS = ['name', 'gradientAngle', 'selectable', 'hasControls', 'linkData', 'editable', 'extensionType', 'extension'];
@@ -105,7 +104,6 @@ export const FONT_UNDERLINE = false;
 export const TEXT_ALIGN = 'left';
 
 export const TEXT_OPTIONS = {
-  type: 'textbox',
   left: 100,
   top: 100,
   fill: FILL_COLOR,
@@ -172,7 +170,7 @@ export type BuildEditorProps = {
   autoZoom: () => void;
   copy: () => void;
   paste: () => void;
-  canvas: fabric.Canvas;
+  canvas: Canvas;
   fillColor: string;
   strokeColor: string;
   strokeWidth: number;
@@ -183,7 +181,7 @@ export type BuildEditorProps = {
   setStrokeDashArray: (strokeDashArray: number[]) => void;
   fontFamily: string;
   setFontFamily: (fontFamily: string) => void;
-  selectedObjects: fabric.Object[];
+  selectedObjects: FabricObject[];
 };
 
 export interface Editor {
@@ -195,7 +193,7 @@ export interface Editor {
   autoZoom: () => void;
   canUndo: () => boolean;
   canRedo: () => boolean;
-  getWorkspace: () => fabric.Object | undefined;
+  getWorkspace: () => FabricObject | undefined;
   zoomIn: () => void;
   zoomOut: () => void;
   changeBackground: (background: string) => void;
@@ -223,7 +221,7 @@ export interface Editor {
   changeStrokeColor: (color: string) => void;
   changeStrokeWidth: (width: number) => void;
   changeStrokeDashArray: (strokeDashArray: number[]) => void;
-  addText: (text: string, options?: ITextboxOptions) => void;
+  addText: (text: string, options?: Partial<TextboxProps>) => void;
   addCircle: () => void;
   addSoftRectangle: () => void;
   addRectangle: () => void;
@@ -243,6 +241,6 @@ export interface Editor {
   getActiveStrokeWidth: () => number;
   getActiveStrokeDashArray: () => number[];
 
-  canvas: fabric.Canvas;
-  selectedObjects: fabric.Object[];
-}
+  canvas: Canvas;
+  selectedObjects: FabricObject[];
+};

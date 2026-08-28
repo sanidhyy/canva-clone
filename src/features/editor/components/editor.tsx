@@ -1,6 +1,6 @@
 'use client';
 
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import debounce from 'lodash.debounce';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -77,18 +77,22 @@ export const Editor = ({ initialData }: EditorProps) => {
   );
 
   useEffect(() => {
-    const canvas = new fabric.Canvas(canvasRef.current, {
+    const canvasEl = canvasRef.current;
+    const containerEl = containerRef.current;
+    if (!canvasEl || !containerEl) return;
+
+    const canvas = new fabric.Canvas(canvasEl, {
       controlsAboveOverlay: true,
       preserveObjectStacking: true,
     });
 
     init({
       initialCanvas: canvas,
-      initialContainer: containerRef.current!,
+      initialContainer: containerEl,
     });
 
     return () => {
-      canvas.dispose();
+      void canvas.dispose();
     };
   }, [init]);
 

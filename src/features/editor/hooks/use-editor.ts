@@ -1,4 +1,4 @@
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import { useCallback, useMemo, useRef, useState } from 'react';
 
 import {
@@ -23,7 +23,7 @@ import {
   TEXT_OPTIONS,
   TRIANGLE_OPTIONS,
 } from '@/features/editor/types';
-import { createFilter, downloadFile, isTextType, transformText } from '@/features/editor/utils';
+import { createFilter, downloadFile, getWorkspace as findWorkspace, isTextType, transformText } from '@/features/editor/utils';
 
 import { useAutoResize } from './use-auto-resize';
 import { useCanvasEvents } from './use-canvas-events';
@@ -31,6 +31,14 @@ import { useClipboard } from './use-clipboard';
 import { useHistory } from './use-history';
 import { useHotkeys } from './use-hotkeys';
 import { useLoadState } from './use-load-state';
+
+const ensureFreeDrawingBrush = (canvas: fabric.Canvas) => {
+  if (!canvas.freeDrawingBrush) {
+    canvas.freeDrawingBrush = new fabric.PencilBrush(canvas);
+  }
+
+  return canvas.freeDrawingBrush;
+};
 
 const buildEditor = ({
   save,
@@ -54,7 +62,7 @@ const buildEditor = ({
   setFontFamily,
   selectedObjects,
 }: BuildEditorProps): Editor => {
-  const addToCanvas = (object: fabric.Object) => {
+  const addToCanvas = (object: fabric.FabricObject) => {
     center(object);
     canvas.add(object);
     canvas.setActiveObject(object);
@@ -64,9 +72,9 @@ const buildEditor = ({
     const { width, height, left, top } = getWorkspace() as fabric.Rect;
 
     return {
-      name: 'Image',
-      format: 'png',
+      format: 'png' as const,
       quality: 1,
+      multiplier: 1,
       width,
       height,
       left,
@@ -105,7 +113,7 @@ const buildEditor = ({
   };
 
   const saveJSON = async () => {
-    const dataUrl = canvas.toJSON(JSON_KEYS);
+    const dataUrl = canvas.toObject(JSON_KEYS);
 
     await transformText(dataUrl.objects);
 
@@ -117,23 +125,23 @@ const buildEditor = ({
   const loadJSON = (json: string) => {
     const data = JSON.parse(json);
 
-    canvas.loadFromJSON(data, () => {
+    void canvas.loadFromJSON(data).then(() => {
       autoZoom();
     });
   };
 
   const getWorkspace = () => {
-    return canvas.getObjects().find((object) => object.name === 'clip');
+    return findWorkspace(canvas);
   };
 
-  const center = (object: fabric.Object) => {
+  const center = (object: fabric.FabricObject) => {
     const workspace = getWorkspace();
     const centerPoint = workspace?.getCenterPoint();
 
     if (!centerPoint) return;
 
-    // @ts-ignore _centerObject method types aren't added.
-    canvas._centerObject(object, centerPoint);
+    object.setXY(centerPoint, 'center', 'center');
+    object.setCoords();
   };
 
   return {
@@ -150,15 +158,15 @@ const buildEditor = ({
       let zoomRatio = canvas.getZoom();
       zoomRatio += 0.05;
 
-      const center = canvas.getCenter();
-      canvas.zoomToPoint(new fabric.Point(center.left, center.top), zoomRatio > 0.8 ? 0.8 : zoomRatio);
+      const centerPoint = canvas.getCenterPoint();
+      canvas.zoomToPoint(centerPoint, zoomRatio > 0.8 ? 0.8 : zoomRatio);
     },
     zoomOut: () => {
       let zoomRatio = canvas.getZoom();
       zoomRatio -= 0.05;
 
-      const center = canvas.getCenter();
-      canvas.zoomToPoint(new fabric.Point(center.left, center.top), zoomRatio < 0.2 ? 0.2 : zoomRatio);
+      const centerPoint = canvas.getCenterPoint();
+      canvas.zoomToPoint(centerPoint, zoomRatio < 0.2 ? 0.2 : zoomRatio);
     },
     changeSize: (size: { width: number; height: number }) => {
       const workspace = getWorkspace();
@@ -180,9 +188,10 @@ const buildEditor = ({
       canvas.discardActiveObject();
       canvas.renderAll();
 
+      const brush = ensureFreeDrawingBrush(canvas);
+      brush.width = strokeWidth;
+      brush.color = strokeColor;
       canvas.isDrawingMode = true;
-      canvas.freeDrawingBrush.width = strokeWidth;
-      canvas.freeDrawingBrush.color = strokeColor;
     },
     disableDrawingMode: () => {
       canvas.isDrawingMode = false;
@@ -195,33 +204,25 @@ const buildEditor = ({
       const objects = canvas.getActiveObjects();
 
       objects.forEach((object) => {
-        if (object.type === 'image') {
-          const imageObject = object as fabric.Image;
-
+        if (object instanceof fabric.FabricImage) {
           const filter = createFilter(effect);
 
-          imageObject.filters = filter ? [filter] : [];
+          object.filters = filter ? [filter] : [];
 
-          imageObject.applyFilters();
+          object.applyFilters();
           canvas.renderAll();
         }
       });
     },
     addImage: (imageUrl) => {
-      fabric.Image.fromURL(
-        imageUrl,
-        (image) => {
-          const workspace = getWorkspace();
+      void fabric.FabricImage.fromURL(imageUrl, { crossOrigin: 'anonymous' }).then((image) => {
+        const workspace = getWorkspace();
 
-          image.scaleToWidth(workspace?.width || 0);
-          image.scaleToHeight(workspace?.height || 0);
+        image.scaleToWidth(workspace?.width || 0);
+        image.scaleToHeight(workspace?.height || 0);
 
-          addToCanvas(image);
-        },
-        {
-          crossOrigin: 'anonymous',
-        },
-      );
+        addToCanvas(image);
+      });
     },
     delete: () => {
       canvas.getActiveObjects().forEach((object) => canvas.remove(object));
@@ -238,62 +239,62 @@ const buildEditor = ({
     },
     bringForward: () => {
       canvas.getActiveObjects().forEach((object) => {
-        canvas.bringForward(object);
+        canvas.bringObjectForward(object);
       });
 
       canvas.renderAll();
 
       const workspace = getWorkspace();
-      workspace?.sendToBack();
+      if (workspace) canvas.sendObjectToBack(workspace);
     },
     sendBackwards: () => {
       canvas.getActiveObjects().forEach((object) => {
-        canvas.sendBackwards(object);
+        canvas.sendObjectBackwards(object);
       });
 
       canvas.renderAll();
 
       const workspace = getWorkspace();
-      workspace?.sendToBack();
+      if (workspace) canvas.sendObjectToBack(workspace);
     },
     changeFontSize: (fontSize) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('fontSize', fontSize);
+        if (object instanceof fabric.FabricText) object.set({ fontSize });
       });
 
       canvas.renderAll();
     },
     changeTextAlign: (textAlign) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('textAlign', textAlign);
+        if (object instanceof fabric.FabricText) object.set({ textAlign });
       });
 
       canvas.renderAll();
     },
     changeFontUnderline: (underline) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('underline', underline);
+        if (object instanceof fabric.FabricText) object.set({ underline });
       });
 
       canvas.renderAll();
     },
     changeFontLinethrough: (linethrough) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('linethrough', linethrough);
+        if (object instanceof fabric.FabricText) object.set({ linethrough });
       });
 
       canvas.renderAll();
     },
     changeFontStyle: (fontStyle) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('fontStyle', fontStyle);
+        if (object instanceof fabric.FabricText) object.set({ fontStyle });
       });
 
       canvas.renderAll();
     },
     changeFontWeight: (fontWeight) => {
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('fontWeight', fontWeight);
+        if (object instanceof fabric.FabricText) object.set({ fontWeight });
       });
 
       canvas.renderAll();
@@ -302,7 +303,7 @@ const buildEditor = ({
       setFontFamily(fontFamily);
 
       canvas.getActiveObjects().forEach((object) => {
-        if (isTextType(object.type)) object._set('fontFamily', fontFamily);
+        if (object instanceof fabric.FabricText) object.set({ fontFamily });
       });
 
       canvas.renderAll();
@@ -326,7 +327,8 @@ const buildEditor = ({
         object.set({ stroke: color });
       });
 
-      canvas.freeDrawingBrush.color = color;
+      const brush = canvas.freeDrawingBrush;
+      if (brush) brush.color = color;
       canvas.renderAll();
     },
     changeStrokeWidth: (width) => {
@@ -334,7 +336,8 @@ const buildEditor = ({
 
       canvas.getActiveObjects().forEach((object) => object.set({ strokeWidth: width }));
 
-      canvas.freeDrawingBrush.width = width;
+      const brush = canvas.freeDrawingBrush;
+      if (brush) brush.width = width;
       canvas.renderAll();
     },
     changeStrokeDashArray: (strokeDashArray: number[]) => {
@@ -465,72 +468,51 @@ const buildEditor = ({
     getActiveFontSize: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return FONT_SIZE;
+      if (!(selectedObject instanceof fabric.FabricText)) return FONT_SIZE;
 
-      // @ts-ignore fontSize attribute types aren't added.
-      const value = selectedObject.get('fontSize') || FONT_SIZE;
-
-      return value as number;
+      return selectedObject.get('fontSize') || FONT_SIZE;
     },
     getActiveTextAlign: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return TEXT_ALIGN;
+      if (!(selectedObject instanceof fabric.FabricText)) return TEXT_ALIGN;
 
-      // @ts-ignore textAlign attribute types aren't added.
-      const value = selectedObject.get('textAlign') || TEXT_ALIGN;
-
-      return value as string;
+      return selectedObject.get('textAlign') || TEXT_ALIGN;
     },
     getActiveFontUnderline: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return FONT_UNDERLINE;
+      if (!(selectedObject instanceof fabric.FabricText)) return FONT_UNDERLINE;
 
-      // @ts-ignore underline attribute types aren't added.
-      const value = selectedObject.get('underline') || FONT_UNDERLINE;
-
-      return value as boolean;
+      return selectedObject.get('underline') || FONT_UNDERLINE;
     },
     getActiveFontLinethrough: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return FONT_LINETHROUGH;
+      if (!(selectedObject instanceof fabric.FabricText)) return FONT_LINETHROUGH;
 
-      // @ts-ignore linethrough attribute types aren't added.
-      const value = selectedObject.get('linethrough') || FONT_LINETHROUGH;
-
-      return value as boolean;
+      return selectedObject.get('linethrough') || FONT_LINETHROUGH;
     },
     getActiveFontStyle: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return FONT_STYLE;
+      if (!(selectedObject instanceof fabric.FabricText)) return FONT_STYLE;
 
-      // @ts-ignore fontStyle attribute types aren't added.
-      const value = selectedObject.get('fontStyle') || FONT_STYLE;
-
-      return value as string;
+      return selectedObject.get('fontStyle') || FONT_STYLE;
     },
     getActiveFontWeight: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return FONT_WEIGHT;
+      if (!(selectedObject instanceof fabric.FabricText)) return FONT_WEIGHT;
 
-      // @ts-ignore fontWeight attribute types aren't added.
-      const value = selectedObject.get('fontWeight') || FONT_WEIGHT;
-
-      return value as number;
+      return selectedObject.get('fontWeight') || FONT_WEIGHT;
     },
     getActiveFontFamily: () => {
       const selectedObject = selectedObjects[0];
 
-      if (!selectedObject) return fontFamily;
+      if (!(selectedObject instanceof fabric.FabricText)) return fontFamily;
 
-      // @ts-ignore fontFamily attribute types aren't added.
-      const value = selectedObject.get('fontFamily') || fontFamily;
-
-      return value as string;
+      return selectedObject.get('fontFamily') || fontFamily;
     },
     getActiveOpacity: () => {
       const selectedObject = selectedObjects[0];
@@ -558,7 +540,7 @@ const buildEditor = ({
 
       const value = selectedObject.get('stroke') || strokeColor;
 
-      return value;
+      return value as string;
     },
     getActiveStrokeWidth: () => {
       const selectedObject = selectedObjects[0];
@@ -591,7 +573,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
 
   const [canvas, setCanvas] = useState<fabric.Canvas | null>(null);
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
-  const [selectedObjects, setSelectedObjects] = useState<fabric.Object[]>([]);
+  const [selectedObjects, setSelectedObjects] = useState<fabric.FabricObject[]>([]);
 
   const [fontFamily, setFontFamily] = useState(FONT_FAMILY);
   const [fillColor, setFillColor] = useState(FILL_COLOR);
@@ -637,7 +619,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
     setHistoryIndex,
   });
 
-  fabric.Object.prototype.set({
+  Object.assign(fabric.FabricObject.ownDefaults, {
     cornerColor: '#fff',
     cornerStyle: 'circle',
     borderColor: '#3b82f6',
@@ -706,8 +688,10 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
         }),
       });
 
-      initialCanvas.setWidth(initialContainer.offsetWidth);
-      initialCanvas.setHeight(initialContainer.offsetHeight);
+      initialCanvas.setDimensions({
+        width: initialContainer.offsetWidth,
+        height: initialContainer.offsetHeight,
+      });
 
       initialCanvas.add(initialWorkspace);
       initialCanvas.centerObject(initialWorkspace);
@@ -716,7 +700,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
       setCanvas(initialCanvas);
       setContainer(initialContainer);
 
-      const currentState = JSON.stringify(initialCanvas.toJSON(JSON_KEYS));
+      const currentState = JSON.stringify(initialCanvas.toObject(JSON_KEYS));
 
       canvasHistory.current = [currentState];
       setHistoryIndex(0);

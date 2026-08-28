@@ -1,5 +1,7 @@
-import { fabric } from 'fabric';
+import * as fabric from 'fabric';
 import { useCallback, useEffect } from 'react';
+
+import { getWorkspace } from '@/features/editor/utils';
 
 interface UseAutoResizeProps {
   canvas: fabric.Canvas | null;
@@ -13,15 +15,15 @@ export const useAutoResize = ({ canvas, container }: UseAutoResizeProps) => {
     const width = container.offsetWidth;
     const height = container.offsetHeight;
 
-    canvas.setWidth(width);
-    canvas.setHeight(height);
+    canvas.setDimensions({ width, height });
 
-    const center = canvas.getCenter();
+    const center = canvas.getCenterPoint();
 
     const zoomRatio = 0.85;
-    const localWorkspace = canvas.getObjects().find((object) => object.name === 'clip');
+    const localWorkspace = getWorkspace(canvas);
 
-    // @ts-ignore util types aren't added.
+    if (!localWorkspace) return;
+
     const scale = fabric.util.findScaleToFit(localWorkspace, {
       width,
       height,
@@ -29,10 +31,8 @@ export const useAutoResize = ({ canvas, container }: UseAutoResizeProps) => {
 
     const zoom = zoomRatio * scale;
 
-    canvas.setViewportTransform(fabric.iMatrix.concat());
-    canvas.zoomToPoint(new fabric.Point(center.left, center.top), zoom);
-
-    if (!localWorkspace) return;
+    canvas.setViewportTransform([...fabric.iMatrix]);
+    canvas.zoomToPoint(center, zoom);
 
     const workspaceCenter = localWorkspace.getCenterPoint();
     const viewportTransform = canvas.viewportTransform;
@@ -45,7 +45,7 @@ export const useAutoResize = ({ canvas, container }: UseAutoResizeProps) => {
 
     canvas.setViewportTransform(viewportTransform);
 
-    localWorkspace.clone((cloned: fabric.Rect) => {
+    void localWorkspace.clone().then((cloned) => {
       canvas.clipPath = cloned;
       canvas.requestRenderAll();
     });
