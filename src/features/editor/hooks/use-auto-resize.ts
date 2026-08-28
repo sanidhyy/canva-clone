@@ -39,11 +39,14 @@ export const useAutoResize = ({ canvas, container }: UseAutoResizeProps) => {
 
     if (canvas.width === undefined || canvas.height === undefined || !viewportTransform) return;
 
-    viewportTransform[4] = canvas.width / 2 - workspaceCenter.x * viewportTransform[0];
-
-    viewportTransform[5] = canvas.height / 2 - workspaceCenter.y * viewportTransform[3];
-
-    canvas.setViewportTransform(viewportTransform);
+    canvas.setViewportTransform([
+      viewportTransform[0],
+      viewportTransform[1],
+      viewportTransform[2],
+      viewportTransform[3],
+      canvas.width / 2 - workspaceCenter.x * viewportTransform[0],
+      canvas.height / 2 - workspaceCenter.y * viewportTransform[3],
+    ]);
 
     void localWorkspace.clone().then((cloned) => {
       canvas.clipPath = cloned;
