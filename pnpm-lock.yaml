@@ -19,7 +19,7 @@ importers:
         version: 1.1.1(@auth/core@0.41.3)(hono@4.13.5)(react@19.2.8)
       '@hono/zod-validator':
         specifier: ^0.9.0
-        version: 0.9.0(hono@4.13.5)(zod@4.4.3)
+        version: 0.9.0(hono@4.13.5)(zod@4.5.4)
       '@neondatabase/serverless':
         specifier: ^1.0.2
         version: 1.1.0
@@ -88,7 +88,7 @@ importers:
         version: 0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0)
       drizzle-zod:
         specifier: ^0.8.3
-        version: 0.8.3(drizzle-orm@0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0))(zod@4.4.3)
+        version: 0.8.3(drizzle-orm@0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0))(zod@4.5.4)
       fabric:
         specifier: 7.4.0
         version: 7.4.0
@@ -153,8 +153,8 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(react@19.2.8)
       zod:
-        specifier: ^4.3.6
-        version: 4.4.3
+        specifier: ^4.5.4
+        version: 4.5.4
       zustand:
         specifier: ^5.0.11
         version: 5.0.15(@types/react@19.2.18)(react@19.2.8)
@@ -4193,8 +4193,8 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
+  zod@4.5.4:
+    resolution: {integrity: sha512-sC95tT5iHHH9gtpj6A81kh+NEaRAUFN+qlUPDUbRfOMvNf5QCBqsb3WgvnpVtK5Y+4UfA6KqufotuTvMGiTlsA==}
 
   zustand@5.0.15:
     resolution: {integrity: sha512-MpSEjRiBkA9crSYeOUH32rJC7SVqAbm0Fqcqge/bUi2PPoLcBWKOsG+C8mevmpr8TwXHBVkChbbJiyvkE+i/3A==}
@@ -4780,10 +4780,10 @@ snapshots:
       hono: 4.13.5
       react: 19.2.8
 
-  '@hono/zod-validator@0.9.0(hono@4.13.5)(zod@4.4.3)':
+  '@hono/zod-validator@0.9.0(hono@4.13.5)(zod@4.5.4)':
     dependencies:
       hono: 4.13.5
-      zod: 4.4.3
+      zod: 4.5.4
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -6029,10 +6029,10 @@ snapshots:
       '@neondatabase/serverless': 1.1.0
       pg: 8.23.0
 
-  drizzle-zod@0.8.3(drizzle-orm@0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0))(zod@4.4.3):
+  drizzle-zod@0.8.3(drizzle-orm@0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0))(zod@4.5.4):
     dependencies:
       drizzle-orm: 0.45.2(@neondatabase/serverless@1.1.0)(pg@8.23.0)
-      zod: 4.4.3
+      zod: 4.5.4
 
   dunder-proto@1.0.1:
     dependencies:
@@ -6384,8 +6384,8 @@ snapshots:
       '@babel/parser': 7.29.8
       eslint: 10.9.1(jiti@1.21.7)
       hermes-parser: 0.25.1
-      zod: 4.4.3
-      zod-validation-error: 4.0.2(zod@4.4.3)
+      zod: 4.5.4
+      zod-validation-error: 4.0.2(zod@4.5.4)
     transitivePeerDependencies:
       - supports-color
 
@@ -8171,13 +8171,13 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-validation-error@4.0.2(zod@4.4.3):
+  zod-validation-error@4.0.2(zod@4.5.4):
     dependencies:
-      zod: 4.4.3
+      zod: 4.5.4
 
   zod@3.25.76: {}
 
-  zod@4.4.3: {}
+  zod@4.5.4: {}
 
   zustand@5.0.15(@types/react@19.2.18)(react@19.2.8):
     optionalDependencies:
