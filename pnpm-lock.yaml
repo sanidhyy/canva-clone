@@ -18,8 +18,8 @@ importers:
         specifier: ^1.0.11
         version: 1.1.1(@auth/core@0.41.3)(hono@4.13.5)(react@19.2.8)
       '@hono/zod-validator':
-        specifier: ^0.9.0
-        version: 0.9.0(hono@4.13.5)(zod@4.5.4)
+        specifier: ^0.9.1
+        version: 0.9.1(hono@4.13.5)(zod@4.5.4)
       '@neondatabase/serverless':
         specifier: ^1.0.2
         version: 1.1.0
@@ -943,8 +943,8 @@ packages:
       hono: '>=3.0.0'
       react: ^18 || ^19 || ^19.0.0-rc
 
-  '@hono/zod-validator@0.9.0':
-    resolution: {integrity: sha512-n0ZSXmCiHVIp4Y5wlOOyZCeTd/rsawA/qW1cipB8QOYKZ9N8Tk0nZUZCXho9cu374AN4JpDNKioNKBJ/W+LBug==}
+  '@hono/zod-validator@0.9.1':
+    resolution: {integrity: sha512-iiv6w0qrIc0arfvCtUqBWsvl4fXjzaTcQcCJTTtCnkawF9HHGE+KjEl0ox3gQJ6rKZEgE3mLExlQCF72M+mNuw==}
     peerDependencies:
       hono: '>=4.11.2'
       zod: ^3.25.0 || ^4.0.0
@@ -4780,7 +4780,7 @@ snapshots:
       hono: 4.13.5
       react: 19.2.8
 
-  '@hono/zod-validator@0.9.0(hono@4.13.5)(zod@4.5.4)':
+  '@hono/zod-validator@0.9.1(hono@4.13.5)(zod@4.5.4)':
     dependencies:
       hono: 4.13.5
       zod: 4.5.4
