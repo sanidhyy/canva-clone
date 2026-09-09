@@ -315,7 +315,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@types/node](https://www.npmjs.com/package/@types/node): ^26.0.1
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.14
 - [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.3
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.7
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^7.0.3
 - [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.7.0
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs): ^3.0.3
