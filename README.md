@@ -328,7 +328,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.0
 - [drizzle-zod](https://www.npmjs.com/package/drizzle-zod): ^0.8.3
 - [eslint](https://www.npmjs.com/package/eslint): ^10
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.3
+- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.4
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.0.1
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.2.1
 - [fabric](https://www.npmjs.com/package/fabric): 7.4.0
