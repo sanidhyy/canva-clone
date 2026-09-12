@@ -10,8 +10,9 @@ declare global {
       // unsplash api access key
       NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: string;
 
-      // openai api key
-      OPENAI_API_KEY: string;
+      // encrypted AI settings cookie (openssl rand -hex 32)
+      AI_SETTINGS_COOKIE_NAME: string;
+      VERIFICATION_SECRET: string;
 
       // Added by `npx auth`. Read more: https://cli.authjs.dev
       AUTH_SECRET: string;
