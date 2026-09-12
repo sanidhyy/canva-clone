@@ -108,12 +108,11 @@ canva-clone/
   |- drizzle.config.ts
   |- environment.d.ts
   |- eslint.config.mjs
-  |- next.config.mjs
+  |- next.config.ts
   |- package.json
   |- pnpm-lock.yaml
   |- pnpm-workspace.yaml
   |- postcss.config.mjs
-  |- tailwind.config.ts
   |- tsconfig.json
   |- vercel.ts
 ```
@@ -291,7 +290,7 @@ Useful resources and dependencies that are used in Canva Clone.
 <!--- DEPENDENCIES_START --->
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
-- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.0
+- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
 - [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.9.1
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
@@ -307,21 +306,20 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.2.4
 - [@radix-ui/react-tooltip](https://www.npmjs.com/package/@radix-ui/react-tooltip): ^1.2.8
 - [@radix-ui/react-visually-hidden](https://www.npmjs.com/package/@radix-ui/react-visually-hidden): ^1.2.4
+- [@tailwindcss/postcss](https://www.npmjs.com/package/@tailwindcss/postcss): ^4.3.3
 - [@tanstack/react-query](https://www.npmjs.com/package/@tanstack/react-query): ^5.102.8
 - [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^6.0.0
-- [@types/bcryptjs](https://www.npmjs.com/package/@types/bcryptjs): ^3.0.0
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/material-colors](https://www.npmjs.com/package/@types/material-colors): ^1.2.3
-- [@types/node](https://www.npmjs.com/package/@types/node): ^26.0.1
-- [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.14
+- [@types/node](https://www.npmjs.com/package/@types/node): ^26.5.1
+- [@types/react](https://www.npmjs.com/package/@types/react): ^19.3.0
 - [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.7
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.3.0
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^7.0.3
 - [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.7.0
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs): ^3.0.3
 - [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
 - [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
-- [crypto](https://www.npmjs.com/package/crypto): ^1.0.1
 - [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
 - [dotenv](https://www.npmjs.com/package/dotenv): ^17.3.1
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.0
@@ -332,33 +330,33 @@ Useful resources and dependencies that are used in Canva Clone.
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.0.1
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.2.1
 - [fabric](https://www.npmjs.com/package/fabric): 7.4.0
-- [hono](https://www.npmjs.com/package/hono): ^4.12.19
+- [hono](https://www.npmjs.com/package/hono): ^4.13.7
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.37.0
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.45.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
-- [next](https://www.npmjs.com/package/next): 16.3.3
+- [next](https://www.npmjs.com/package/next): 16.3.4
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.6
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.0
-- [react](https://www.npmjs.com/package/react): ^19.2.4
+- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.1
+- [react](https://www.npmjs.com/package/react): ^19.3.0
 - [react-color](https://www.npmjs.com/package/react-color): ^2.19.3
-- [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.4
+- [react-dom](https://www.npmjs.com/package/react-dom): ^19.3.0
 - [react-icons](https://www.npmjs.com/package/react-icons): ^5.5.0
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
 - [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
-- [stripe](https://www.npmjs.com/package/stripe): 22.6.0
+- [stripe](https://www.npmjs.com/package/stripe): 22.6.2
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
-- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.1
-- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
+- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^4.3.3
+- [tw-animate-css](https://www.npmjs.com/package/tw-animate-css): ^1.4.0
 - [typescript](https://www.npmjs.com/package/typescript): ^6.0.2
 - [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^8.0.0
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
 - [use-file-picker](https://www.npmjs.com/package/use-file-picker): ^2.1.4
-- [zod](https://www.npmjs.com/package/zod): ^4.5.4
+- [zod](https://www.npmjs.com/package/zod): ^4.6.2
 - [zustand](https://www.npmjs.com/package/zustand): ^5.0.11
 
 <!--- DEPENDENCIES_END --->
