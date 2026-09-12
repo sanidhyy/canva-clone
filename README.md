@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 canva-clone/
   |- drizzle/
@@ -117,7 +116,6 @@ canva-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -288,7 +286,6 @@ Useful resources and dependencies that are used in Canva Clone.
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 
 <!--- DEPENDENCIES_START --->
-
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
@@ -340,6 +337,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.21.0-dev.20250206-d981b153d3
+- [openai](https://www.npmjs.com/package/openai): ^7.15.0
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.6
@@ -349,7 +347,6 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-dom](https://www.npmjs.com/package/react-dom): ^19.3.0
 - [react-icons](https://www.npmjs.com/package/react-icons): ^5.5.0
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
-- [openai](https://www.npmjs.com/package/openai): ^7.15.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
 - [stripe](https://www.npmjs.com/package/stripe): 22.6.2
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
