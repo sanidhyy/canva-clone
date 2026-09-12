@@ -18,7 +18,7 @@ export const FontSidebar = ({ editor, activeTool, onChangeActiveTool }: FontSide
   const onClose = () => onChangeActiveTool('select');
 
   return (
-    <aside className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'font' ? 'visible' : 'hidden')}>
+    <aside className={cn('relative z-40 flex h-full w-90 flex-col border bg-white', activeTool === 'font' ? 'visible' : 'hidden')}>
       <ToolSidebarHeader title="Font" description="Modify the text font." />
 
       <ScrollArea>

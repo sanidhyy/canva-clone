@@ -29,9 +29,7 @@ export const StrokeWidthSidebar = ({ editor, activeTool, onChangeActiveTool }: S
   };
 
   return (
-    <aside
-      className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'stroke-width' ? 'visible' : 'hidden')}
-    >
+    <aside className={cn('relative z-40 flex h-full w-90 flex-col border bg-white', activeTool === 'stroke-width' ? 'visible' : 'hidden')}>
       <ToolSidebarHeader title="Stroke options" description="Modify the stroke of your element." />
 
       <ScrollArea>
