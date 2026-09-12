@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 canva-clone/
   |- drizzle/
@@ -120,7 +119,6 @@ canva-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -295,7 +293,6 @@ Useful resources and dependencies that are used in Canva Clone.
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 
 <!--- DEPENDENCIES_START --->
-
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
@@ -357,6 +354,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-dom](https://www.npmjs.com/package/react-dom): ^19.3.0
 - [react-icons](https://www.npmjs.com/package/react-icons): ^5.5.0
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
+- [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
 - [stripe](https://www.npmjs.com/package/stripe): 22.6.2
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
