@@ -3,7 +3,7 @@ import { zValidator } from '@hono/zod-validator';
 import { Hono } from 'hono';
 import { z } from 'zod';
 
-import { replicate } from '@/lib/replicate';
+import { openai } from '@/lib/openai';
 
 const app = new Hono().post(
   '/generate-image',
@@ -17,19 +17,18 @@ const app = new Hono().post(
   async (ctx) => {
     const { prompt } = ctx.req.valid('json');
 
-    const output: unknown = await replicate.run(
-      'stability-ai/stable-diffusion:ac732df83cea7fff18b8472768c88ad041fa750ff7682a21affe81863cbe77e4',
-      {
-        input: {
-          prompt,
-          scheduler: 'K_EULER',
-        },
-      },
-    );
+    const response = await openai.images.generate({
+      model: 'gpt-image-2.5-sunburst',
+      prompt,
+      n: 1,
+      size: '1024x1024',
+    });
 
-    const res = output as Array<string>;
+    const b64 = response.data?.[0]?.b64_json;
 
-    return ctx.json({ data: res[0] });
+    if (!b64) return ctx.json({ error: 'Failed to generate image' }, 500);
+
+    return ctx.json({ data: `data:image/png;base64,${b64}` });
   },
 );
 

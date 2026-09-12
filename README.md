@@ -44,6 +44,7 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
+
 ```bash
 canva-clone/
   |- drizzle/
@@ -90,7 +91,7 @@ canva-clone/
       |--- use-is-client.ts
     |-- lib/
       |--- hono.ts
-      |--- replicate.ts
+      |--- openai.ts
       |--- stripe.ts
       |--- unsplash.ts
       |--- uploadthing.ts
@@ -116,6 +117,7 @@ canva-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
+
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -128,8 +130,6 @@ canva-clone/
 4. Contents of `.env.local`:
 
 ```env
-# .env.local
-
 # disable next.js telemetry
 NEXT_TELEMETRY_DISABLED=1
 
@@ -140,10 +140,10 @@ NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000
 NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=x-X-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # uploadthing token
-UPLOADTHING_TOKEN='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+UPLOADTHING_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# replicate api token
-REPLICATE_API_TOKEN=r8_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# openai api key
+OPENAI_API_KEY="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # Added by `npx auth`. Read more: https://cli.authjs.dev
 AUTH_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
@@ -193,13 +193,13 @@ To get the UploadThing token:
 - Create a new project which will generate an API token.
 - Copy the token.
 
-### 9. Replicate API Token
+### 9. OpenAI API Key
 
-To get the Replicate API token:
+To get the OpenAI API key:
 
-- Sign up at [Replicate](https://replicate.com/).
-- Go to your account settings and find the API section.
-- Copy the **API token**.
+- Sign up at [OpenAI Platform](https://platform.openai.com/).
+- Go to **API keys** and create a new secret key.
+- Copy the **API key**.
 
 ### 10. Auth.js Secret
 
@@ -288,6 +288,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 
 <!--- DEPENDENCIES_START --->
+
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
@@ -348,7 +349,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [react-dom](https://www.npmjs.com/package/react-dom): ^19.3.0
 - [react-icons](https://www.npmjs.com/package/react-icons): ^5.5.0
 - [react-use](https://www.npmjs.com/package/react-use): ^17.6.0
-- [replicate](https://www.npmjs.com/package/replicate): ^1.0.0
+- [openai](https://www.npmjs.com/package/openai): ^7.15.0
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
 - [stripe](https://www.npmjs.com/package/stripe): 22.6.2
 - [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1

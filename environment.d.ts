@@ -10,8 +10,8 @@ declare global {
       // unsplash api access key
       NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: string;
 
-      // replicate api token
-      REPLICATE_API_TOKEN: string;
+      // openai api key
+      OPENAI_API_KEY: string;
 
       // Added by `npx auth`. Read more: https://cli.authjs.dev
       AUTH_SECRET: string;

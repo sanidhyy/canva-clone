@@ -1,4 +1,4 @@
-import { AlertTriangle, Loader2 } from 'lucide-react';
+import { AlertTriangle, Loader2Icon } from 'lucide-react';
 import Image from 'next/image';
 import { toast } from 'sonner';
 
@@ -63,7 +63,7 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
             </div>
 
             <Button disabled={isRemovingBg} onClick={onRemove} className="w-full gap-1">
-              {isRemovingBg ? <Loader2 className="size-4 animate-spin stroke-3" /> : null}
+              {isRemovingBg ? <Loader2Icon className="size-4 animate-spin stroke-3" /> : null}
               {isRemovingBg ? 'Removing background...' : 'Remove background'}
             </Button>
           </div>

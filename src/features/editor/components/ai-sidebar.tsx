@@ -1,3 +1,4 @@
+import { Loader2Icon } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 
@@ -64,8 +65,9 @@ export const AiSidebar = ({ editor, activeTool, onChangeActiveTool }: AiSidebarP
             className="resize-y"
           />
 
-          <Button disabled={isGeneratingImage} type="submit" className="w-full">
-            Generate
+          <Button disabled={isGeneratingImage} type="submit" className="w-full gap-1">
+            {isGeneratingImage ? <Loader2Icon className="size-4 animate-spin stroke-3" /> : null}
+            {isGeneratingImage ? 'Generating image...' : 'Generate'}
           </Button>
         </form>
       </ScrollArea>
