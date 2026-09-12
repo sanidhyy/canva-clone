@@ -3,8 +3,8 @@
 import type { Canvas, TMat2D } from 'fabric';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import type { Editor } from '@/features/editor/types';
-import { getWorkspace } from '@/features/editor/utils';
+import { type Editor, MAX_ZOOM, MIN_ZOOM } from '@/features/editor/types';
+import { centerOrClampViewport, getWorkspace } from '@/features/editor/utils';
 
 const TRACK_THICKNESS = 8;
 const TRACK_EDGE = 4; // distance from container edge (cross axis)
@@ -155,6 +155,19 @@ export const CanvasScrollbars = ({ editor }: CanvasScrollbarsProps) => {
       const scale = event.deltaMode === 1 ? 16 : 1;
       let deltaX = event.deltaX * scale;
       let deltaY = event.deltaY * scale;
+
+      // Ctrl + wheel (or trackpad pinch) zooms towards the cursor.
+      if (event.ctrlKey || event.metaKey) {
+        const zoom = clamp(canvas.getZoom() * 0.999 ** deltaY, MIN_ZOOM, MAX_ZOOM);
+
+        canvas.zoomToPoint(canvas.getViewportPoint(event), zoom);
+        centerOrClampViewport(canvas);
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        return;
+      }
 
       // Shift + wheel scrolls horizontally (when the browser hasn't already swapped the axes).
       if (event.shiftKey && !deltaX) {

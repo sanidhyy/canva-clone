@@ -15,6 +15,8 @@ import {
   FONT_UNDERLINE,
   FONT_WEIGHT,
   JSON_KEYS,
+  MAX_ZOOM,
+  MIN_ZOOM,
   RECTANGLE_OPTIONS,
   STROKE_COLOR,
   STROKE_DASH_ARRAY,
@@ -166,7 +168,7 @@ const buildEditor = ({
       zoomRatio += 0.05;
 
       const centerPoint = canvas.getCenterPoint();
-      canvas.zoomToPoint(centerPoint, zoomRatio > 1 ? 1 : zoomRatio);
+      canvas.zoomToPoint(centerPoint, Math.min(zoomRatio, MAX_ZOOM));
       centerOrClampViewport(canvas);
     },
     zoomOut: () => {
@@ -174,7 +176,7 @@ const buildEditor = ({
       zoomRatio -= 0.05;
 
       const centerPoint = canvas.getCenterPoint();
-      canvas.zoomToPoint(centerPoint, zoomRatio < 0.2 ? 0.2 : zoomRatio);
+      canvas.zoomToPoint(centerPoint, Math.max(zoomRatio, MIN_ZOOM));
       centerOrClampViewport(canvas);
     },
     changeSize: (size: { width: number; height: number }) => {
