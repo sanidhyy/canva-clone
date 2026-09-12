@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { toast } from 'sonner';
 
@@ -33,6 +33,8 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
   const onRemove = () => {
     if (shouldBlock) return triggerPaywall();
 
+    toast.info('Removing background... This may take upto 1 minute.');
+
     removeBg(
       {
         image: imageSrc,
@@ -50,9 +52,7 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
   };
 
   return (
-    <aside
-      className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'remove-bg' ? 'visible' : 'hidden')}
-    >
+    <aside className={cn('relative z-40 flex h-full w-90 flex-col border bg-white', activeTool === 'remove-bg' ? 'visible' : 'hidden')}>
       <ToolSidebarHeader title="Background Removal" description="Remove background from image using AI." />
 
       {imageSrc ? (
@@ -62,8 +62,9 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
               <Image src={imageSrc} alt="Selected image" fill className="object-cover" />
             </div>
 
-            <Button disabled={isRemovingBg} onClick={onRemove} className="w-full">
-              Remove background
+            <Button disabled={isRemovingBg} onClick={onRemove} className="w-full gap-1">
+              {isRemovingBg ? <Loader2 className="size-4 animate-spin stroke-3" /> : null}
+              {isRemovingBg ? 'Removing background...' : 'Remove background'}
             </Button>
           </div>
         </ScrollArea>

@@ -47,7 +47,7 @@ export const AiSidebar = ({ editor, activeTool, onChangeActiveTool }: AiSidebarP
   };
 
   return (
-    <aside className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'ai' ? 'visible' : 'hidden')}>
+    <aside className={cn('relative z-40 flex h-full w-90 flex-col border bg-white', activeTool === 'ai' ? 'visible' : 'hidden')}>
       <ToolSidebarHeader title="AI" description="Generate an image using AI." />
 
       <ScrollArea>

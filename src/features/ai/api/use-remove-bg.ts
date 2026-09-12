@@ -1,17 +1,22 @@
 import { useMutation } from '@tanstack/react-query';
-import { InferRequestType, InferResponseType } from 'hono';
 
-import { client } from '@/lib/hono';
+type RequestType = {
+  image: string;
+};
 
-type RequestType = InferRequestType<(typeof client.api.ai)['remove-bg']['$post']>['json'];
-type ResponseType = InferResponseType<(typeof client.api.ai)['remove-bg']['$post']>;
+type ResponseType = {
+  data: string;
+};
 
 export const useRemoveBg = () => {
   const mutation = useMutation<ResponseType, Error, RequestType>({
-    mutationFn: async (json) => {
-      const response = await client.api.ai['remove-bg'].$post({ json });
+    mutationFn: async ({ image }) => {
+      const { removeBackground } = await import('@imgly/background-removal');
 
-      return await response.json();
+      const blob = await removeBackground(image);
+      const url = URL.createObjectURL(blob);
+
+      return { data: url };
     },
   });
 
