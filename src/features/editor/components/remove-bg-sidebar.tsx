@@ -33,7 +33,7 @@ export const RemoveBgSidebar = ({ editor, activeTool, onChangeActiveTool }: Remo
   const onRemove = () => {
     if (shouldBlock) return triggerPaywall();
 
-    toast.info('Removing background... This may take upto 1 minute.');
+    toast.info('Removing background... This may take upto 1 minute depending on your hardware.');
 
     removeBg(
       {
