@@ -1,4 +1,3 @@
-import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import bcrypt from 'bcryptjs';
 import { eq } from 'drizzle-orm';
 import type { NextAuthConfig } from 'next-auth';
@@ -29,7 +28,8 @@ const CredentialsSchema = z.object({
 });
 
 export default {
-  adapter: DrizzleAdapter(db),
+  basePath: '/api/auth',
+  trustHost: true,
   providers: [
     Credentials({
       credentials: {
@@ -60,10 +60,6 @@ export default {
   pages: {
     signIn: '/sign-in',
     error: '/sign-in',
-  },
-  secret: process.env.AUTH_SECRET,
-  session: {
-    strategy: 'jwt',
   },
   callbacks: {
     session: ({ session, token }) => {

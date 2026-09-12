@@ -26,7 +26,7 @@ const RootLayout = async ({ children }: Readonly<PropsWithChildren>) => {
   const session = await auth();
 
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={session} refetchOnWindowFocus={false} refetchInterval={0}>
       <html lang="en">
         <body className={cn(inter.className, 'antialiased')}>
           <Providers>

@@ -64,15 +64,7 @@ export const UserButton = () => {
           </>
         )}
 
-        <DropdownMenuItem
-          disabled={isPendingBilling}
-          onClick={() =>
-            signOut({
-              redirectTo: '/',
-            })
-          }
-          className="h-10"
-        >
+        <DropdownMenuItem disabled={isPendingBilling} onClick={() => void signOut({ redirectTo: '/' })} className="h-10">
           <LogOut className="mr-2 size-4" />
           Logout
         </DropdownMenuItem>
