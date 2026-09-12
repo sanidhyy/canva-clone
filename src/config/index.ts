@@ -56,3 +56,5 @@ export const siteConfig: Metadata = {
 export const links = {
   sourceCode: 'https://github.com/sanidhyy/canva-clone',
 } as const;
+
+export const API_KEYS_REQUIRED_MESSAGE = 'Add your OpenAI API key in Settings to use AI image generation.';
