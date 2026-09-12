@@ -22,7 +22,7 @@ export const FillColorSidebar = ({ editor, activeTool, onChangeActiveTool }: Fil
   };
 
   return (
-    <aside className={cn('relative z-40 flex h-full w-[360px] flex-col border bg-white', activeTool === 'fill' ? 'visible' : 'hidden')}>
+    <aside className={cn('relative z-40 flex h-full w-90 flex-col border bg-white', activeTool === 'fill' ? 'visible' : 'hidden')}>
       <ToolSidebarHeader title="Fill color" description="Add fill color to your element." />
 
       <ScrollArea>
