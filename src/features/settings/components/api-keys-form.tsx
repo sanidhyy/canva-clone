@@ -110,7 +110,7 @@ export const ApiKeysForm = ({ initialValues }: ApiKeysFormProps) => {
               setOpenaiApiKey(e.target.value);
               if (error) setError(null);
             }}
-            placeholder="sk-•••••••••••••••••••••••••••••••"
+            placeholder="sk-proj-•••••••••••••••••••••••••••••••"
             disabled={isLoading}
             autoComplete="off"
             className="pr-10"
