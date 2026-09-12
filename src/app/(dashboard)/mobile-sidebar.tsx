@@ -27,7 +27,7 @@ export const MobileSidebar = () => {
         </Button>
       </SheetTrigger>
 
-      <SheetContent side="left" className="flex h-full w-[300px] shrink-0 flex-col bg-muted p-0">
+      <SheetContent side="left" className="flex h-full w-75 shrink-0 flex-col bg-muted p-0">
         <SheetHeader>
           <VisuallyHidden.Root>
             <SheetTitle>Image AI</SheetTitle>
