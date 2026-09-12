@@ -44,6 +44,7 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
+
 ```bash
 canva-clone/
   |- drizzle/
@@ -84,16 +85,19 @@ canva-clone/
       |--- editor/
       |--- images/
       |--- projects/
+      |--- settings/
       |--- subscriptions/
     |-- hooks/
       |--- use-confirm.tsx
       |--- use-is-client.ts
     |-- lib/
+      |--- encryption.ts
       |--- hono.ts
       |--- openai.ts
       |--- stripe.ts
       |--- unsplash.ts
       |--- uploadthing.ts
+      |--- user-api-keys.ts
       |--- utils.ts
     |-- auth.config.ts
     |-- auth.ts
@@ -116,6 +120,7 @@ canva-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
+
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -140,8 +145,9 @@ NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=x-X-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # uploadthing token
 UPLOADTHING_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# openai api key
-OPENAI_API_KEY="sk-proj-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+# encrypted AI settings cookie (openssl rand -hex 32)
+AI_SETTINGS_COOKIE_NAME="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+VERIFICATION_SECRET="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # Added by `npx auth`. Read more: https://cli.authjs.dev
 AUTH_SECRET="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
@@ -191,13 +197,16 @@ To get the UploadThing token:
 - Create a new project which will generate an API token.
 - Copy the token.
 
-### 9. OpenAI API Key
+### 9. AI Settings Cookie Secrets
 
-To get the OpenAI API key:
+Generate both values with:
 
-- Sign up at [OpenAI Platform](https://platform.openai.com/).
-- Go to **API keys** and create a new secret key.
-- Copy the **API key**.
+```bash
+openssl rand -hex 32
+```
+
+- **`AI_SETTINGS_COOKIE_NAME`**: Cookie name used to store encrypted API keys.
+- **`VERIFICATION_SECRET`**: Secret used to encrypt/decrypt the cookie payload. Keep this secret safe.
 
 ### 10. Auth.js Secret
 
@@ -286,6 +295,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - Thanks to CodeWithAntonio: https://codewithantonio.com/
 
 <!--- DEPENDENCIES_START --->
+
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
