@@ -73,7 +73,7 @@ export const TemplateSidebar = ({ editor, activeTool, onChangeActiveTool }: Temp
                     <Image fill src={template.thumbnailUrl || ''} alt={template.name} className="object-cover" />
 
                     {template.isPro && (
-                      <div className="absolute right-2 top-2 z-10 flex size-8 items-center justify-center rounded-full bg-black/50 shadow-md">
+                      <div className="absolute top-2 right-2 z-10 flex size-8 items-center justify-center rounded-full bg-black/50 shadow-md">
                         <Crown className="size-4 fill-yellow-500 text-yellow-500" />
                       </div>
                     )}

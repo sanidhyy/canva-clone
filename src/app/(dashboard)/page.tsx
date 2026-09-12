@@ -8,7 +8,7 @@ const HomePage = async () => {
   await protectServer();
 
   return (
-    <div className="mx-auto flex max-w-screen-xl flex-col space-y-6 pb-10">
+    <div className="mx-auto flex max-w-(--breakpoint-xl) flex-col space-y-6 pb-10">
       <Banner />
       <TemplatesSection />
       <ProjectsSection />

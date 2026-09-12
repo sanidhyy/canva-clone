@@ -134,11 +134,11 @@ export const Toolbar = ({ editor, activeTool, onChangeActiveTool }: ToolbarProps
   };
 
   if (editor?.selectedObjects.length === 0) {
-    return <div className="z-[49] flex h-[56px] w-full shrink-0 items-center gap-x-2 overflow-x-auto border-b bg-white p-2" />;
+    return <div className="z-49 flex h-[56px] w-full shrink-0 items-center gap-x-2 overflow-x-auto border-b bg-white p-2" />;
   }
 
   return (
-    <div className="z-[49] flex h-[56px] w-full shrink-0 items-center gap-x-2 overflow-x-auto border-b bg-white p-2">
+    <div className="z-49 flex h-[56px] w-full shrink-0 items-center gap-x-2 overflow-x-auto border-b bg-white p-2">
       {!isImage && (
         <div className="flex h-full items-center justify-center">
           <Hint label="Color" side="bottom" sideOffset={5}>

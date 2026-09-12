@@ -87,7 +87,7 @@ export function createFilter(value: (typeof filters)[number]) {
     case 'invert':
       effect = new fabric.filters.Invert();
       break;
-    case 'blur':
+    case 'blur-sm':
       effect = new fabric.filters.Blur({
         blur: 0.6,
       });

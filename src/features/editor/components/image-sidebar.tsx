@@ -98,7 +98,7 @@ export const ImageSidebar = ({ editor, activeTool, onChangeActiveTool }: ImageSi
                       onClick={(e) => e.stopPropagation()}
                       href={attributionLink}
                       target="_blank"
-                      className="absolute bottom-0 left-0 w-full truncate bg-black/50 p-1 text-left text-[10px] text-white opacity-0 hover:underline group-hover:opacity-100"
+                      className="absolute bottom-0 left-0 w-full truncate bg-black/50 p-1 text-left text-[10px] text-white opacity-0 group-hover:opacity-100 hover:underline"
                     >
                       {image.user.name}
                     </Link>

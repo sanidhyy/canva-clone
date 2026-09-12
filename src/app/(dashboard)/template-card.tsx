@@ -30,12 +30,12 @@ export const TemplateCard = ({ imageSrc, title, onClick, disabled, description, 
         <Image src={imageSrc} alt={title} className="transform object-cover transition group-hover:scale-105" fill />
 
         {isPro && (
-          <div className="absolute right-2 top-2 z-10 flex size-10 items-center justify-center rounded-full bg-black/50 shadow-md">
+          <div className="absolute top-2 right-2 z-10 flex size-10 items-center justify-center rounded-full bg-black/50 shadow-md">
             <Crown className="size-5 fill-yellow-500 text-yellow-500" />
           </div>
         )}
 
-        <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/50 opacity-0 backdrop-blur-sm backdrop-filter transition group-hover:opacity-100">
+        <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/50 opacity-0 backdrop-blur-xs backdrop-filter transition group-hover:opacity-100">
           <p className="font-medium text-white">Open in editor</p>
         </div>
       </div>

@@ -108,7 +108,7 @@ export const Editor = ({ initialData }: EditorProps) => {
         onChangeActiveTool={onChangeActiveTool}
       />
 
-      <div className="absolute top-[68px] flex h-[calc(100%_-_68px)] w-full">
+      <div className="absolute top-[68px] flex h-[calc(100%-68px)] w-full">
         <Sidebar activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
         <ShapeSidebar editor={editor} activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
         <FillColorSidebar editor={editor} activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
@@ -133,7 +133,7 @@ export const Editor = ({ initialData }: EditorProps) => {
             key={JSON.stringify(editor?.canvas.getActiveObject())}
           />
 
-          <div className="h-[calc(100%_-_124px)] flex-1 bg-muted" ref={containerRef}>
+          <div className="h-[calc(100%-124px)] flex-1 bg-muted" ref={containerRef}>
             <canvas ref={canvasRef} />
           </div>
 

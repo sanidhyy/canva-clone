@@ -16,7 +16,7 @@ export const filters = [
   'technicolor',
   'pixelate',
   'invert',
-  'blur',
+  'blur-sm',
   'sharpen',
   'emboss',
   'removecolor',

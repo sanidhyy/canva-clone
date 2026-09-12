@@ -36,10 +36,10 @@ export const UserButton = () => {
 
   return (
     <DropdownMenu modal={false}>
-      <DropdownMenuTrigger className="relative outline-none">
+      <DropdownMenuTrigger className="relative outline-hidden">
         {!shouldBlock && !isLoading && (
-          <div className="absolute -left-1 -top-1 z-10 flex items-center justify-center">
-            <div className="flex items-center justify-center rounded-full bg-white p-1 drop-shadow-sm">
+          <div className="absolute -top-1 -left-1 z-10 flex items-center justify-center">
+            <div className="flex items-center justify-center rounded-full bg-white p-1 drop-shadow-xs">
               <Crown className="size-3 fill-yellow-500 text-yellow-500" />
             </div>
           </div>
