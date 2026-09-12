@@ -3,7 +3,9 @@ import { zValidator } from '@hono/zod-validator';
 import { Hono } from 'hono';
 import { z } from 'zod';
 
-import { openai } from '@/lib/openai';
+import { API_KEYS_REQUIRED_MESSAGE } from '@/config';
+import { createOpenAI } from '@/lib/openai';
+import { getUserApiKeys } from '@/lib/user-api-keys';
 
 const app = new Hono().post(
   '/generate-image',
@@ -15,7 +17,14 @@ const app = new Hono().post(
     }),
   ),
   async (ctx) => {
+    const apiKeys = await getUserApiKeys();
+
+    if (!apiKeys) {
+      return ctx.json({ error: API_KEYS_REQUIRED_MESSAGE }, 400);
+    }
+
     const { prompt } = ctx.req.valid('json');
+    const openai = createOpenAI(apiKeys.openaiApiKey);
 
     const response = await openai.images.generate({
       model: 'gpt-image-2.5-sunburst',

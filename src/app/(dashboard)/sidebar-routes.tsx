@@ -1,6 +1,6 @@
 'use client';
 
-import { CreditCard, Crown, Home } from 'lucide-react';
+import { CreditCard, Crown, Home, Settings } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BsGithub } from 'react-icons/bs';
@@ -58,6 +58,7 @@ export const SidebarRoutes = ({ onClick = () => {} }: SidebarRoutesProps) => {
 
       <ul className="flex flex-col gap-y-1 px-3">
         <SidebarItem href="/" label="Home" icon={Home} onClick={onClick} isActive={pathname === '/'} />
+        <SidebarItem href="/settings" label="Settings" icon={Settings} onClick={onClick} isActive={pathname === '/settings'} />
       </ul>
 
       <div className="px-3">

@@ -7,6 +7,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Textarea } from '@/components/ui/textarea';
 import { useGenerateImage } from '@/features/ai/api/use-generate-image';
 import { type ActiveTool, type Editor } from '@/features/editor/types';
+import { useRequireApiKeys } from '@/features/settings/hooks/use-require-api-keys';
 import { usePaywall } from '@/features/subscriptions/hooks/use-paywall';
 import { cn } from '@/lib/utils';
 
@@ -21,6 +22,7 @@ interface AiSidebarProps {
 
 export const AiSidebar = ({ editor, activeTool, onChangeActiveTool }: AiSidebarProps) => {
   const { shouldBlock, triggerPaywall } = usePaywall();
+  const { showApiKeysRequiredToast } = useRequireApiKeys();
   const [prompt, setPrompt] = useState('');
 
   const { mutate: generateImage, isPending: isGeneratingImage } = useGenerateImage();
@@ -41,7 +43,13 @@ export const AiSidebar = ({ editor, activeTool, onChangeActiveTool }: AiSidebarP
         },
         onError: (error) => {
           console.error(error);
-          toast.error('Something went wrong!');
+
+          if (error.message.toLowerCase().includes('api key')) {
+            showApiKeysRequiredToast(error.message);
+            return;
+          }
+
+          toast.error(error.message || 'Something went wrong!');
         },
       },
     );

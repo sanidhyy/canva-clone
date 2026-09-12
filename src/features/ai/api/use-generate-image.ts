@@ -11,7 +11,15 @@ export const useGenerateImage = () => {
     mutationFn: async (json) => {
       const response = await client.api.ai['generate-image'].$post({ json });
 
-      if (!response.ok) throw new Error(response.statusText || 'Failed to generate image.');
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        const message =
+          body && typeof body === 'object' && 'error' in body && typeof body.error === 'string'
+            ? body.error
+            : response.statusText || 'Failed to generate image.';
+
+        throw new Error(message);
+      }
 
       return await response.json();
     },

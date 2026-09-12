@@ -1,7 +1,8 @@
 'use client';
 
-import { CreditCard, Crown, Loader2, LogOut } from 'lucide-react';
+import { CreditCard, Crown, Loader2, LogOut, Settings } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -54,15 +55,20 @@ export const UserButton = () => {
 
       <DropdownMenuContent align="end" className="w-60">
         {!shouldBlock && !isLoading && (
-          <>
-            <DropdownMenuItem disabled={isPendingBilling} onClick={onClick} className="h-10">
-              <CreditCard className="mr-2 size-4" />
-              Billing
-            </DropdownMenuItem>
-
-            <DropdownMenuSeparator />
-          </>
+          <DropdownMenuItem disabled={isPendingBilling} onClick={onClick} className="h-10">
+            <CreditCard className="mr-2 size-4" />
+            Billing
+          </DropdownMenuItem>
         )}
+
+        <DropdownMenuItem asChild className="h-10">
+          <Link href="/settings">
+            <Settings className="mr-2 size-4" />
+            Settings
+          </Link>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
 
         <DropdownMenuItem disabled={isPendingBilling} onClick={() => void signOut({ redirectTo: '/' })} className="h-10">
           <LogOut className="mr-2 size-4" />
