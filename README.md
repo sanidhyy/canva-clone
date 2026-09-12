@@ -293,6 +293,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
 - [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.9.1
+- [@imgly/background-removal](https://www.npmjs.com/package/@imgly/background-removal): ^1.7.0
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
 - [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^3.3.0
 - [@radix-ui/react-alert-dialog](https://www.npmjs.com/package/@radix-ui/react-alert-dialog): ^1.1.15
@@ -337,6 +338,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [next](https://www.npmjs.com/package/next): 16.3.4
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
+- [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.21.0-dev.20250206-d981b153d3
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
 - [prettier](https://www.npmjs.com/package/prettier): ^3.9.6
