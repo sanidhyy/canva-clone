@@ -38,7 +38,6 @@
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "crypto": "^1.0.1",
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.0",
     "drizzle-zod": "^0.8.3",
@@ -69,7 +68,6 @@
   "devDependencies": {
     "@babel/eslint-parser": "^8.0.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
-    "@types/bcryptjs": "^3.0.0",
     "@types/lodash.debounce": "^4.0.9",
     "@types/material-colors": "^1.2.3",
     "@types/node": "^26.0.1",
