@@ -16,6 +16,34 @@ export function getWorkspace(canvas: fabric.Canvas) {
   return canvas.getObjects().find(isWorkspace);
 }
 
+export function centerOrClampViewport(canvas: fabric.Canvas) {
+  const workspace = getWorkspace(canvas);
+  if (!workspace) return;
+
+  const bounds = workspace.getBoundingRect();
+  const vpt: fabric.TMat2D = [...canvas.viewportTransform];
+
+  const adjustAxis = (zoom: number, translate: number, contentPos: number, contentLength: number, viewportLength: number) => {
+    const size = contentLength * zoom;
+    const start = contentPos * zoom + translate;
+
+    // Fits: center the workspace on this axis.
+    if (size <= viewportLength) return (viewportLength - size) / 2 - contentPos * zoom;
+    // Overflows with a gap before the leading edge: clamp to it.
+    if (start > 0) return translate - start;
+    // Overflows with a gap after the trailing edge: clamp to it.
+    if (start + size < viewportLength) return translate + viewportLength - (start + size);
+
+    return translate;
+  };
+
+  vpt[4] = adjustAxis(vpt[0], vpt[4], bounds.left, bounds.width, canvas.getWidth());
+  vpt[5] = adjustAxis(vpt[3], vpt[5], bounds.top, bounds.height, canvas.getHeight());
+
+  canvas.setViewportTransform(vpt);
+  canvas.requestRenderAll();
+}
+
 export async function transformText(objects: any) {
   if (!objects) return;
 

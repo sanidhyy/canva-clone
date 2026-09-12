@@ -23,7 +23,14 @@ import {
   TEXT_OPTIONS,
   TRIANGLE_OPTIONS,
 } from '@/features/editor/types';
-import { createFilter, downloadFile, getWorkspace as findWorkspace, isTextType, transformText } from '@/features/editor/utils';
+import {
+  centerOrClampViewport,
+  createFilter,
+  downloadFile,
+  getWorkspace as findWorkspace,
+  isTextType,
+  transformText,
+} from '@/features/editor/utils';
 
 import { useAutoResize } from './use-auto-resize';
 import { useCanvasEvents } from './use-canvas-events';
@@ -159,7 +166,8 @@ const buildEditor = ({
       zoomRatio += 0.05;
 
       const centerPoint = canvas.getCenterPoint();
-      canvas.zoomToPoint(centerPoint, zoomRatio > 0.8 ? 0.8 : zoomRatio);
+      canvas.zoomToPoint(centerPoint, zoomRatio > 1 ? 1 : zoomRatio);
+      centerOrClampViewport(canvas);
     },
     zoomOut: () => {
       let zoomRatio = canvas.getZoom();
@@ -167,6 +175,7 @@ const buildEditor = ({
 
       const centerPoint = canvas.getCenterPoint();
       canvas.zoomToPoint(centerPoint, zoomRatio < 0.2 ? 0.2 : zoomRatio);
+      centerOrClampViewport(canvas);
     },
     changeSize: (size: { width: number; height: number }) => {
       const workspace = getWorkspace();

@@ -10,6 +10,7 @@ import type { ResponseType } from '@/features/projects/api/use-get-project';
 import { useUpdateProject } from '@/features/projects/api/use-update-project';
 
 import { AiSidebar } from './ai-sidebar';
+import { CanvasScrollbars } from './canvas-scrollbars';
 import { DrawSidebar } from './draw-sidebar';
 import { FillColorSidebar } from './fill-color-sidebar';
 import { FilterSidebar } from './filter-sidebar';
@@ -108,7 +109,7 @@ export const Editor = ({ initialData }: EditorProps) => {
         onChangeActiveTool={onChangeActiveTool}
       />
 
-      <div className="absolute top-[68px] flex h-[calc(100%-68px)] w-full">
+      <div className="absolute top-17 flex h-[calc(100%-68px)] w-full">
         <Sidebar activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
         <ShapeSidebar editor={editor} activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
         <FillColorSidebar editor={editor} activeTool={activeTool} onChangeActiveTool={onChangeActiveTool} />
@@ -133,8 +134,9 @@ export const Editor = ({ initialData }: EditorProps) => {
             key={JSON.stringify(editor?.canvas.getActiveObject())}
           />
 
-          <div className="h-[calc(100%-124px)] flex-1 bg-muted" ref={containerRef}>
+          <div className="relative h-[calc(100%-124px)] flex-1 bg-muted" ref={containerRef}>
             <canvas ref={canvasRef} />
+            <CanvasScrollbars editor={editor} />
           </div>
 
           <Footer editor={editor} />
