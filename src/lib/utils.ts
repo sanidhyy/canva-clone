@@ -11,8 +11,7 @@ export function absoluteUrl(path: string) {
 }
 
 export function getSecureCookieName(cookieName: string) {
-  const baseUrl = absoluteUrl('');
-  const isSecure = baseUrl.startsWith('https://');
+  const isSecure = process.env.NODE_ENV === 'production';
 
   return isSecure ? `__Secure-${cookieName}` : cookieName;
 }
