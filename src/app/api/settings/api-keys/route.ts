@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import OpenAI from 'openai';
 
 import { auth } from '@/auth';
 import { apiKeysFormSchema } from '@/features/settings/schemas';
