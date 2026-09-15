@@ -1,4 +1,3 @@
-import { createId } from '@paralleldrive/cuid2';
 import * as fabric from 'fabric';
 import type { RGBColor } from 'react-color';
 
@@ -55,11 +54,11 @@ export async function transformText(objects: any) {
   });
 }
 
-export function downloadFile(file: string, type: string) {
+export function downloadFile(file: string, type: string, name = 'Untitled Project') {
   const anchorElement = document.createElement('a');
 
   anchorElement.href = file;
-  anchorElement.download = `${createId()}.${type}`;
+  anchorElement.download = `${name}.${type}`;
 
   document.body.appendChild(anchorElement);
   anchorElement.click();

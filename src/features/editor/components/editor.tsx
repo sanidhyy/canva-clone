@@ -58,6 +58,7 @@ export const Editor = ({ initialData }: EditorProps) => {
     defaultState: initialData.json,
     defaultWidth: initialData.width,
     defaultHeight: initialData.height,
+    projectName: initialData.name,
     clearSelectionCallback: onClearSelection,
     saveCallback: debouncedSave,
   });

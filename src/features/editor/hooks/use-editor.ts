@@ -50,6 +50,7 @@ const ensureFreeDrawingBrush = (canvas: fabric.Canvas) => {
 };
 
 const buildEditor = ({
+  projectName,
   save,
   canRedo,
   canUndo,
@@ -97,7 +98,7 @@ const buildEditor = ({
 
     const dataUrl = canvas.toDataURL(options);
 
-    downloadFile(dataUrl, 'png');
+    downloadFile(dataUrl, 'png', projectName);
     autoZoom();
   };
 
@@ -107,7 +108,7 @@ const buildEditor = ({
 
     const dataUrl = canvas.toDataURL(options);
 
-    downloadFile(dataUrl, 'jpeg');
+    downloadFile(dataUrl, 'jpeg', projectName);
     autoZoom();
   };
 
@@ -117,7 +118,7 @@ const buildEditor = ({
 
     const dataUrl = canvas.toDataURL(options);
 
-    downloadFile(dataUrl, 'jpg');
+    downloadFile(dataUrl, 'jpg', projectName);
     autoZoom();
   };
 
@@ -128,7 +129,7 @@ const buildEditor = ({
 
     const fileString = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(dataUrl, null, '\t'))}`;
 
-    downloadFile(fileString, 'json');
+    downloadFile(fileString, 'json', projectName);
   };
 
   const loadJSON = (json: string) => {
@@ -577,7 +578,14 @@ const buildEditor = ({
   };
 };
 
-export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSelectionCallback, saveCallback }: EditorHookProps) => {
+export const useEditor = ({
+  defaultState,
+  defaultWidth,
+  defaultHeight,
+  projectName = 'Untitled Project',
+  clearSelectionCallback,
+  saveCallback,
+}: EditorHookProps) => {
   const initialState = useRef(defaultState);
   const initialWidth = useRef(defaultWidth);
   const initialHeight = useRef(defaultHeight);
@@ -643,6 +651,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
   const editor = useMemo(() => {
     if (canvas)
       return buildEditor({
+        projectName,
         save,
         canRedo,
         canUndo,
@@ -682,6 +691,7 @@ export const useEditor = ({ defaultState, defaultWidth, defaultHeight, clearSele
     strokeDashArray,
     fontFamily,
     selectedObjects,
+    projectName,
   ]);
 
   const init = useCallback(
