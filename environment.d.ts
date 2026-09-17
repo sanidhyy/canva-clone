@@ -8,7 +8,7 @@ declare global {
       NEXT_PUBLIC_APP_BASE_URL: string;
 
       // unsplash api access key
-      NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: string;
+      UNSPLASH_ACCESS_KEY: string;
 
       // encrypted AI settings cookie (openssl rand -hex 32)
       AI_SETTINGS_COOKIE_NAME: string;

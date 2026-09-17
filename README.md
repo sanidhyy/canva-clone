@@ -138,7 +138,7 @@ NEXT_TELEMETRY_DISABLED=1
 NEXT_PUBLIC_APP_BASE_URL=http://localhost:3000
 
 # unsplash api access key
-NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=x-X-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+UNSPLASH_ACCESS_KEY=x-X-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # uploadthing token
 UPLOADTHING_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
