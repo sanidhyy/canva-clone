@@ -357,7 +357,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [server-only](https://www.npmjs.com/package/server-only): ^0.0.1
 - [sonner](https://www.npmjs.com/package/sonner): ^2.0.7
 - [stripe](https://www.npmjs.com/package/stripe): 22.6.2
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.4.1
+- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.7.0
 - [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^4.3.3
 - [tw-animate-css](https://www.npmjs.com/package/tw-animate-css): ^1.4.0
 - [typescript](https://www.npmjs.com/package/typescript): ^6.0.2
