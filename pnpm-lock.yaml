@@ -166,8 +166,8 @@ importers:
         version: 5.0.15(@types/react@19.3.0)(react@19.3.0)
     devDependencies:
       '@babel/eslint-parser':
-        specifier: ^8.0.5
-        version: 8.0.5(@babel/core@8.0.1)(eslint@10.10.0(jiti@2.7.0))
+        specifier: ^8.0.6
+        version: 8.0.6(@babel/core@8.0.1)(eslint@10.10.0(jiti@2.7.0))
       '@tailwindcss/postcss':
         specifier: ^4.3.3
         version: 4.3.3
@@ -279,8 +279,8 @@ packages:
     resolution: {integrity: sha512-5FgxM4dLQpMJHSiVATk8foW263dVHQHBVpXYiimNECVWG01f4nFyEbQixeT6Mwvg7TayREJ2gpKl3o2RoMdnqw==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
-  '@babel/eslint-parser@8.0.5':
-    resolution: {integrity: sha512-q4c+FpoJ/FKeiLnZ9Os3vWnSlZw3dBmlTUx6vuITRqbd8yn4hgUB0/OOJ+gi5lt+mOx/0IW2rXINR98JJllfag==}
+  '@babel/eslint-parser@8.0.6':
+    resolution: {integrity: sha512-mXx93HLovamLnDDLQ4i48gm4HHtaoqJrbMAuJqrMfpCGJkJ5M4sXhRgKGTrxykg1P8tAN5myrJxsRZuMuTq+OQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
     peerDependencies:
       '@babel/core': ^8.0.0
@@ -4428,7 +4428,7 @@ snapshots:
       obug: 2.1.4
       semver: 7.8.5
 
-  '@babel/eslint-parser@8.0.5(@babel/core@8.0.1)(eslint@10.10.0(jiti@2.7.0))':
+  '@babel/eslint-parser@8.0.6(@babel/core@8.0.1)(eslint@10.10.0(jiti@2.7.0))':
     dependencies:
       '@babel/core': 8.0.1
       eslint: 10.10.0(jiti@2.7.0)
