@@ -69,7 +69,7 @@
     "zustand": "^5.0.11"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^8.0.5",
+    "@babel/eslint-parser": "^8.0.6",
     "@tailwindcss/postcss": "^4.3.3",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/lodash.debounce": "^4.0.9",
