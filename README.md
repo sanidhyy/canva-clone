@@ -364,7 +364,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [unsplash-js](https://www.npmjs.com/package/unsplash-js): ^8.0.0
 - [uploadthing](https://www.npmjs.com/package/uploadthing): ^7.1.0
 - [use-file-picker](https://www.npmjs.com/package/use-file-picker): ^2.1.4
-- [zod](https://www.npmjs.com/package/zod): ^4.6.2
+- [zod](https://www.npmjs.com/package/zod): ^4.6.5
 - [zustand](https://www.npmjs.com/package/zustand): ^5.0.11
 
 <!--- DEPENDENCIES_END --->
