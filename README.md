@@ -327,7 +327,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
 - [clsx](https://www.npmjs.com/package/clsx): ^2.1.1
 - [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
-- [dotenv](https://www.npmjs.com/package/dotenv): ^17.3.1
+- [dotenv](https://www.npmjs.com/package/dotenv): ^18.0.1
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.0
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.0
 - [drizzle-zod](https://www.npmjs.com/package/drizzle-zod): ^0.8.3
