@@ -295,7 +295,7 @@ Useful resources and dependencies that are used in Canva Clone.
 <!--- DEPENDENCIES_START --->
 - [@auth/core](https://www.npmjs.com/package/@auth/core): ^0.41.3
 - [@auth/drizzle-adapter](https://www.npmjs.com/package/@auth/drizzle-adapter): ^1.11.3
-- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.5
+- [@babel/eslint-parser](https://www.npmjs.com/package/@babel/eslint-parser): ^8.0.6
 - [@hono/auth-js](https://www.npmjs.com/package/@hono/auth-js): ^1.0.11
 - [@hono/zod-validator](https://www.npmjs.com/package/@hono/zod-validator): ^0.9.1
 - [@imgly/background-removal](https://www.npmjs.com/package/@imgly/background-removal): ^1.7.0
