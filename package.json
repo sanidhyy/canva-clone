@@ -65,7 +65,7 @@
     "unsplash-js": "^8.0.0",
     "uploadthing": "^7.1.0",
     "use-file-picker": "^2.1.4",
-    "zod": "^4.6.2",
+    "zod": "^4.6.5",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
