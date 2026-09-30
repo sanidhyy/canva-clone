@@ -317,7 +317,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@trivago/prettier-plugin-sort-imports](https://www.npmjs.com/package/@trivago/prettier-plugin-sort-imports): ^6.0.0
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/material-colors](https://www.npmjs.com/package/@types/material-colors): ^1.2.3
-- [@types/node](https://www.npmjs.com/package/@types/node): ^26.5.1
+- [@types/node](https://www.npmjs.com/package/@types/node): ^26.6.3
 - [@types/react](https://www.npmjs.com/package/@types/react): ^19.3.0
 - [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
 - [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.3.0
