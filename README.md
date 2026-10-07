@@ -340,7 +340,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.51.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
-- [next](https://www.npmjs.com/package/next): 16.3.4
+- [next](https://www.npmjs.com/package/next): 16.3.6
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.29.0
