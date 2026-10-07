@@ -336,7 +336,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.0.1
 - [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier): ^5.2.1
 - [fabric](https://www.npmjs.com/package/fabric): 7.4.0
-- [hono](https://www.npmjs.com/package/hono): ^4.13.7
+- [hono](https://www.npmjs.com/package/hono): ^4.13.12
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.45.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
