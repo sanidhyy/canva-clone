@@ -302,7 +302,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.0.2
 - [@paralleldrive/cuid2](https://www.npmjs.com/package/@paralleldrive/cuid2): ^3.3.0
 - [@radix-ui/react-alert-dialog](https://www.npmjs.com/package/@radix-ui/react-alert-dialog): ^1.1.15
-- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.1.11
+- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.2.7
 - [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.15
 - [@radix-ui/react-dropdown-menu](https://www.npmjs.com/package/@radix-ui/react-dropdown-menu): ^2.1.16
 - [@radix-ui/react-label](https://www.npmjs.com/package/@radix-ui/react-label): ^2.1.8
