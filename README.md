@@ -343,7 +343,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [next](https://www.npmjs.com/package/next): 16.3.6
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
-- [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.29.0
+- [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.30.0
 - [openai](https://www.npmjs.com/package/openai): ^7.15.0
 - [pg](https://www.npmjs.com/package/pg): ^8.18.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
