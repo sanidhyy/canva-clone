@@ -40,7 +40,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "drizzle-orm": "^0.45.0",
+    "drizzle-orm": "^0.45.4",
     "drizzle-zod": "^0.8.3",
     "fabric": "7.4.0",
     "hono": "^4.13.12",
