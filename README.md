@@ -329,7 +329,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [date-fns](https://www.npmjs.com/package/date-fns): ^4.1.0
 - [dotenv](https://www.npmjs.com/package/dotenv): ^18.0.8
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.11
-- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.0
+- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.4
 - [drizzle-zod](https://www.npmjs.com/package/drizzle-zod): ^0.8.3
 - [eslint](https://www.npmjs.com/package/eslint): ^10
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.4.0
