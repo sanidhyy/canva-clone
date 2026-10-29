@@ -318,9 +318,9 @@ Useful resources and dependencies that are used in Canva Clone.
 - [@types/lodash.debounce](https://www.npmjs.com/package/@types/lodash.debounce): ^4.0.9
 - [@types/material-colors](https://www.npmjs.com/package/@types/material-colors): ^1.2.3
 - [@types/node](https://www.npmjs.com/package/@types/node): ^26.6.5
-- [@types/react](https://www.npmjs.com/package/@types/react): ^19.3.0
+- [@types/react](https://www.npmjs.com/package/@types/react): ^19
 - [@types/react-color](https://www.npmjs.com/package/@types/react-color): ^3.0.13
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.3.0
+- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19
 - [@uploadthing/react](https://www.npmjs.com/package/@uploadthing/react): ^7.0.3
 - [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.7.2
 - [bcryptjs](https://www.npmjs.com/package/bcryptjs): ^3.0.3
@@ -340,7 +340,7 @@ Useful resources and dependencies that are used in Canva Clone.
 - [lodash.debounce](https://www.npmjs.com/package/lodash.debounce): ^4.0.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.51.0
 - [material-colors](https://www.npmjs.com/package/material-colors): ^1.2.6
-- [next](https://www.npmjs.com/package/next): 16.4.0
+- [next](https://www.npmjs.com/package/next): 16.4.3
 - [next-auth](https://www.npmjs.com/package/next-auth): ^5.0.0-beta.32
 - [next-themes](https://www.npmjs.com/package/next-themes): ^0.4.6
 - [onnxruntime-web](https://www.npmjs.com/package/onnxruntime-web): 1.30.0
