@@ -43,7 +43,7 @@
     "drizzle-orm": "^0.45.4",
     "drizzle-zod": "^0.8.3",
     "fabric": "7.4.0",
-    "hono": "^4.13.12",
+    "hono": "^4.13.14",
     "lodash.debounce": "^4.0.8",
     "lucide-react": "^1.51.0",
     "material-colors": "^1.2.6",
