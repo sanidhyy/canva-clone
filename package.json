@@ -78,7 +78,7 @@
     "@types/react": "^19",
     "@types/react-color": "^3.0.13",
     "@types/react-dom": "^19",
-    "dotenv": "^18.0.8",
+    "dotenv": "^18.0.9",
     "drizzle-kit": "^0.31.11",
     "eslint": "^10",
     "eslint-config-next": "16.4.3",
